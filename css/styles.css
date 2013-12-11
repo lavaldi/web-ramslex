@@ -1,0 +1,100 @@
+@font-face{
+	font-family: Pirulen;
+	src: url('../fonts/pirulen-rg.ttf');
+}
+
+body{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	background: #F4F4F4 url('../img/cubes.png') repeat right top; /*8bbfb3*/
+}
+footer{
+	font-size: 12px;
+	padding: 20px 0;
+	text-align: justify;
+}
+footer a{
+	color: #0C203C;
+}
+.container > .row{
+	background: #F4F4F4;	
+}
+/*========NAVBAR=========*/
+.dnavbar {
+	text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+	background-color: #efefef; /*#7bb2b2;*/
+	border-color: #b4b4b4;
+	box-shadow: 0 1px 0 rgba(255,255,255,.1);
+}
+.dnavbar .navbar-collapse{
+	text-align: center;
+}
+.navbar .navbar-nav {
+  	display: inline-block;
+  	float: none;
+}
+.dnavbar-collapse{
+	display: block;
+}
+.dnavbar .navbar-nav > .active > a,.dnavbar .navbar-nav > .active > a:hover {
+	color: #fff;
+	background-color: #b4b4b4;
+}
+.dnavbar .navbar-nav > li > a{
+	color: #253d5d;
+}
+.dnavbar .navbar-nav > li > a:hover{
+	color: #263446;
+}
+/*========END NAVBAR=========*/
+.first{
+	padding: 50px 0 0;
+}
+#banner .col-lg-12{
+	padding: 0;
+}
+#cubot-gt90, #cubot-gt99, #cubot-p9, #cubot-one, #paso1, #paso2, #pago{
+	padding: 50px 0;
+}
+#cubot-gt90, #cubot-gt99, #paso2, footer{
+	background: #7bb2b2;
+}
+#cubot-p9, #cubot-one, #paso1, #pago{
+	background: #F4F4F4;
+}
+#cubot-gt90 .col-lg-7, #cubot-gt99 .col-lg-7, #paso1 .col-lg-7{
+	text-align: right;
+}
+#cubot-gt90 .col-lg-7, #cubot-gt99 .col-lg-7, #paso2 .col-lg-7{
+	color: #fff;
+}
+#paso2 img{
+	float: right;
+}
+#paso1 .col-lg-5{
+	margin-top: 25px;
+}
+#paso2 .col-lg-5{
+	margin-top: 40px;	
+}
+#pago span{
+	color: #C53C3C;
+	font-size: .7em;
+}
+#garantia-body .row .col-md-12, #faqs-body .row .col-md-12, #reservar-body .row .col-md-12{
+	padding: 0 40px 40px;
+}
+.col-lg-10{
+	font-size: 1.25em;
+}
+.col-lg-7 h2{
+	color: #00e4ff; /*#00cdda;*/
+	font-family: Pirulen;
+	text-align: center;
+}
+.menu{
+	background: #E1E1E8;
+	position: fixed;
+	top: 80px;
+	width: 20%;
+}
