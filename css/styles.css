@@ -14,7 +14,7 @@ footer{
 	text-align: justify;
 }
 footer a{
-	color: #fff;
+	color: #333333;
 }
 .container > .row{
 	background: #F4F4F4;	
@@ -97,4 +97,8 @@ footer a{
 	position: fixed;
 	top: 80px;
 	width: 20%;
+}
+
+.formError .formErrorContent, .formError .formErrorArrow div{
+	background: #C53C3C;
 }

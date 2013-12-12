@@ -7,7 +7,7 @@
 			<nav class="collapse navbar-collapse dnavbar-collapse" role="navigation">
 				<!-- Collect the nav links, forms, and other content for toggling -->
 			    <ul class="nav navbar-nav">
-			    	<li><a href="/">Inicio</a></li>
+			    	<li><a href="/promosmartphonecubot/">Inicio</a></li>
 			    	<li class="active"><a href="especificaciones.php">Especificaciones Técnicas</a></li>
 			      	<li><a href="reservar.php">Reservar</a></li>
 			      	<li><a href="consultar.php">Consultar</a></li>

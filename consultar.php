@@ -7,7 +7,7 @@
 			<nav class="collapse navbar-collapse dnavbar-collapse" role="navigation">
 				<!-- Collect the nav links, forms, and other content for toggling -->
 			    <ul class="nav navbar-nav">
-			    	<li><a href="/">Inicio</a></li>
+			    	<li><a href="/promosmartphonecubot/">Inicio</a></li>
 			    	<li><a href="especificaciones.php">Especificaciones Técnicas</a></li>
 			      	<li><a href="reservar.php">Reservar</a></li>
 			      	<li class="active"><a href="consultar.php">Consultar</a></li>
@@ -21,7 +21,7 @@
 		<div id="banner" class="row">
 			<div class="col-lg-12">
 				<figure>
-				  	<img src="img/banner.png" alt="Promoción Cubot">
+				  	<img src="img/banner-moviles.png" alt="Promoción Cubot">
 				</figure>
 			</div>
 		</div>
@@ -30,6 +30,12 @@
 				<div class="page-header">
 					<h2>Consultar</h2>
 				</div>
+				<?php if(isset($_GET['band'])){
+					echo '<div class="alert alert-dismissable alert-success">
+              				<button type="button" class="close" data-dismiss="alert">×</button>
+              				<strong>¡Maravilloso!</strong> Tu consulta ha sido realizada con éxito.
+            		</div>';}
+            	?>
 				<p>Antes de hacer tu consulta puedes verificar en la sección de <a href="faqs.html">PREGUNTAS FRECUENTES</a>.</p>
 				<form class="form-horizontal" role="form" action="consultarform.php" method="post">
 				  	<div class="form-group">
@@ -37,11 +43,11 @@
 				    	<div class="col-sm-9">
 				    		<div class="row">
 				    			<div class="col-sm-3">
-				      				<input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres">
+				      				<input type="text" class="form-control validate[required,custom[onlyLetterSp]]" id="nombres" name="nombres" placeholder="Nombres">
 				      			</div>
 				      			<label for="apellidos" class="col-sm-3 control-label">Apellidos</label>
 				      			<div class="col-sm-3">
-				      				<input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos">
+				      				<input type="text" class="form-control validate[required,custom[onlyLetterSp]]" id="apellidos" name="apellidos" placeholder="Apellidos">
 				      			</div>
 				      		</div>
 				    	</div>
@@ -51,11 +57,11 @@
 				    	<div class="col-sm-9">
 				    		<div class="row">
 				    			<div class="col-sm-3">
-				      				<input type="text" class="form-control" id="dni" name="dni" placeholder="DNI">
+				      				<input type="text" class="form-control validate[required,custom[number],maxSize[8],minSize[8]]" id="dni" name="dni" placeholder="DNI">
 				      			</div>
 				      			<label for="celular" class="col-sm-3 control-label">Celular</label>
 				      			<div class="col-sm-3">
-				      				<input type="text" class="form-control" id="celular" name="celular" placeholder="999999999">
+				      				<input type="text" class="form-control validate[required,custom[number],,maxSize[9],minSize[9]]" id="celular" name="celular" placeholder="999999999">
 				      			</div>
 				      		</div>
 				    	</div>
@@ -65,11 +71,11 @@
 				    	<div class="col-sm-9">
 				    		<div class="row">
 				    			<div class="col-sm-3">
-				      				<input type="text" class="form-control" id="email" name="email" placeholder="tu@email.com">
+				      				<input type="text" class="form-control validate[required,custom[email]]" id="email" name="email" placeholder="tu@email.com">
 				      			</div>
 				      			<label for="conf-email" class="col-sm-3 control-label">Confirmar Email</label>
 				      			<div class="col-sm-3">
-				      				<input type="text" class="form-control" id="conf-email" name="conf-email">
+				      				<input type="text" class="form-control validate[required,equals[email]]" id="conf-email" name="conf-email">
 				      			</div>
 				      		</div>
 				    	</div>
@@ -87,7 +93,7 @@
 				  	<div class="form-group">
 				    	<label for="consulta" class="col-sm-3 control-label">Consulta</label>
 				    	<div class="col-sm-9">
-				    		<textarea id="consulta" name="consulta" class="form-control"></textarea>
+				    		<textarea id="consulta" name="consulta" class="form-control validate[required]"></textarea>
 				    	</div>
 				  	</div>
 				  	<div class="form-group">

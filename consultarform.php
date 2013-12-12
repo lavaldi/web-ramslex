@@ -20,29 +20,18 @@
 			break;
 	}
 
-	$msg = "Nombre: $nombres $apellidos \n
-			DNI: $dni \n
-			Celular: $celular \n
-			Correo: $mail \n
-			Consulta: $consulta \n"; 
+	$msg = "Nombre: ".$nombres." ".$apellidos."\n".
+			"DNI: ".$dni."\n".
+			"Celular: ".$celular."\n".
+			"Correo: ".$mail."\n".
+			"Consulta: ".$consulta."\n"; 
 	$to = "clindy.26@gmail.com";
-	$subject = "CONSULTA: $tipo_consulta";
-	$mainheaders= "From: $mail";
+	$subject = "CONSULTA: ".$tipo_consulta;
+	$mainheaders= "From: ".$mail;
 
 	$resultado = mail ($to, $subject, $msg);
 
-	/*if($resultado){
-		//El correo de respuesta al que te ha mandado el formulario:
-		//variables
-		$mensaje= "Gracias $nombre, por comunicarse con el Webmaster de recibirá una pronta respuesta";
-		$para="$mail";
-		$subject= "Gracias $nombre por enviarnos el formulario";
-		$mainheaders= "From: admin";
-
-		mail ($para, $subject, $mensaje, $mainheaders);
-	}*/
-
-
-	// servidor, usuario, contrasenia
-	
+	if($resultado){
+		header('Location: consultar.php?band=true'); 
+	}
 ?>
