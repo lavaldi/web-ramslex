@@ -22,9 +22,7 @@ echo '<footer>
 
 			$(".timepicker").timepicker({
                	minuteStep: 1,
-                showMeridian: false,
-                setTime: "00:00",
-                defaultTime: false
+                showMeridian: false
             });
 
 			var nowTemp = new Date();

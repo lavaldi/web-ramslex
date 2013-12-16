@@ -70,7 +70,9 @@
 				      			</div>
 				      			<label for="hora" class="col-sm-3 control-label">Hora</label>
 				      			<div class="col-sm-3">
-				      				<input type="text" class="form-control validate[required] timepicker" id="hora" name="hora">
+				      				<div class="bootstrap-timepicker input-append">
+							            <input type="text" class="form-control validate[required] timepicker" id="hora" name="hora">
+							        </div>
 				      			</div>
 				      		</div>
 				    	</div>
