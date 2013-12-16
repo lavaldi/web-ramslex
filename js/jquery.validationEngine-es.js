@@ -96,11 +96,11 @@
                     "alertText": "* URL Inválida"
                 },
                 "onlyNumberSp": {
-                    "regex": /^[0-9\ ]+$/,
+                    "regex": /^[0-9]+$/,
                     "alertText": "* Sólo números"
                 },
 			    "onlyLetterSp": {
-                    "regex": /^[a-zA-Z\ \']+$/,
+                    "regex": /^[a-zA-Z ñÑáÁéÉíÍóÓúÚüÜç\ \']+$/,
                     "alertText": "* Sólo letras"
                 },
                 "onlyLetterNumber": {
@@ -134,4 +134,3 @@
     };
     $.validationEngineLanguage.newLang();
 })(jQuery);
-

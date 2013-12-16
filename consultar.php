@@ -4,13 +4,23 @@
 ?>
 	<header class="navbar navbar-inverse navbar-fixed-top dnavbar" role="banner">
 		<div class="container">
+			<div class="navbar-header">
+	    			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".dnavbar-collapse">
+		      			<span class="sr-only">Toggle navigation</span>
+		      			<span class="icon-bar"></span>
+		      			<span class="icon-bar"></span>
+		      			<span class="icon-bar"></span>
+	    			</button>
+    			<a class="navbar-brand" href="/promosmartphonecubot/"><img src="img/logoramslex-min.png" alt="Ramslex Engineering Solutions"></a>
+  			</div>
 			<nav class="collapse navbar-collapse dnavbar-collapse" role="navigation">
 				<!-- Collect the nav links, forms, and other content for toggling -->
 			    <ul class="nav navbar-nav">
 			    	<li><a href="/promosmartphonecubot/">Inicio</a></li>
 			    	<li><a href="especificaciones.php">Especificaciones Técnicas</a></li>
-			      	<li><a href="reservar.php">Reservar</a></li>
+			      	<li id="reservar"><a href="reservar.php">Reservar</a></li>
 			      	<li class="active"><a href="consultar.php">Consultar</a></li>
+			      	<li><a href="confirmacion.php">Confirmación de Pago</a></li>
 			      	<li><a href="garantia.php">Garantía</a></li>
 			      	<li><a href="faqs.php">Preguntas Frecuentes</a></li>
 			    </ul>
@@ -57,11 +67,11 @@
 				    	<div class="col-sm-9">
 				    		<div class="row">
 				    			<div class="col-sm-3">
-				      				<input type="text" class="form-control validate[required,custom[number],maxSize[8],minSize[8]]" id="dni" name="dni" placeholder="DNI">
+				      				<input type="text" class="form-control validate[required,custom[onlyNumberSp],maxSize[8],minSize[8]]" id="dni" name="dni" placeholder="DNI">
 				      			</div>
 				      			<label for="celular" class="col-sm-3 control-label">Celular</label>
 				      			<div class="col-sm-3">
-				      				<input type="text" class="form-control validate[required,custom[number],,maxSize[9],minSize[9]]" id="celular" name="celular" placeholder="999999999">
+				      				<input type="text" class="form-control validate[required,custom[onlyNumberSp],maxSize[9],minSize[9]]" id="celular" name="celular" placeholder="999999999">
 				      			</div>
 				      		</div>
 				    	</div>

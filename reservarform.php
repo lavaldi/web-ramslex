@@ -14,6 +14,12 @@
 	`notificaciones` VARCHAR(2) NOT NULL ,
 	`kingston` VARCHAR(2) NOT NULL ,
 	PRIMARY KEY (`idreservas`) );
+
+
+
+
+	ALTER TABLE `reservascubot`.`reservas` ADD COLUMN `codigoreserva` VARCHAR(15) NULL  AFTER `kingston` 
+, ADD UNIQUE INDEX `codigoreserva_UNIQUE` (`codigoreserva` ASC) ;
 	*/
 	$cod_equip		= 	$_POST['selectEquip'];
 	$nombres		=	$_POST['nombres']; 
@@ -58,17 +64,36 @@
 	}
 
 	// servidor, usuario, contrasenia
-	$conexion = mysql_connect ("localhost", "cmclmcom_webmast", "CLMwebmaster123") or die ("No se puede conectar con el servidor");
-	mysql_select_db ("cmclmcom_testedu") or die ("No se puede seleccionar la base de datos");
+	$conexion = mysql_connect ("localhost", "root", "") or die ("No se puede conectar con el servidor"); /*usuario= cmclmcom_webmast ---- contrasenia=CLMwebmaster123*/
+	mysql_select_db ("reservascubot") or die ("No se puede seleccionar la base de datos"); /*BD = cmclmcom_testedu*/
 
     $fecha = date ("Y-m-d"); // Fecha actual
-    $instruccion = "insert into reservas (fecha, nombres, apellidos, equipo, dni, sexo, telefono, distrito, correo, notificaciones, kingston) values ('".$fecha."','".$nombres."', '".$apellidos."', '".$equipo."', '".$dni."', '".$sexo."', '".$telefono."', '".$distrito."', '".$mail."', '".$notificaciones."','".$kingston."')";
+    $instruccion = "INSERT into reservas (fecha, nombres, apellidos, equipo, dni, sexo, telefono, distrito, correo, notificaciones, kingston) VALUES ('".$fecha."','".$nombres."', '".$apellidos."', '".$equipo."', '".$dni."', '".$sexo."', '".$telefono."', '".$distrito."', '".$mail."', '".$notificaciones."','".$kingston."')";
     $consulta = mysql_query ($instruccion, $conexion)
          or die ("Fallo en la consulta");
     mysql_close ($conexion);
 
-	if($consulta){
-		$mensaje		=	"La reserva de ha sido realizada con éxito";
+	$conexion = mysql_connect ("localhost", "root", "") or die ("No se puede conectar con el servidor"); /*usuario= cmclmcom_webmast ---- contrasenia=CLMwebmaster123*/
+	mysql_select_db ("reservascubot") or die ("No se puede seleccionar la base de datos"); /*BD = cmclmcom_testedu*/    
+    $instruccion1 = "SELECT COUNT(*) FROM reservas";
+	$consulta1 = mysql_query ($instruccion1, $conexion)
+         or die ("Fallo en la consulta1");
+    mysql_close ($conexion);
+
+    $num = $consulta1 + 1;
+    $resp = $num - 1;
+    $cod = "TRUJ-RX-".$resp;
+
+    $conexion = mysql_connect ("localhost", "root", "") or die ("No se puede conectar con el servidor"); /*usuario= cmclmcom_webmast ---- contrasenia=CLMwebmaster123*/
+	mysql_select_db ("reservascubot") or die ("No se puede seleccionar la base de datos"); /*BD = cmclmcom_testedu*/
+    $instruccion2 = "UPDATE reservas SET codigoreserva ='".$cod."' WHERE idreservas = ".$resp;
+    $consulta2 = mysql_query ($instruccion2, $conexion)
+         or die ("Fallo en la consulta2");
+    mysql_close ($conexion);
+
+	if($consulta2){
+		$mensaje		=	"La reserva de ha sido realizada con éxito! \n".
+							"Tu código de reserva es ".$cod;
 		$para			=	$mail;
 		$subject		= 	"Reserva de CUBOT realizada";
 		$mainheaders	= 	"From: RAMSLEX TECHNOLOGIES";

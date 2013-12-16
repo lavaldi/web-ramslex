@@ -4,13 +4,23 @@
 ?>
 	<header class="navbar navbar-inverse navbar-fixed-top dnavbar" role="banner">
 		<div class="container">
+			<div class="navbar-header">
+	    			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".dnavbar-collapse">
+		      			<span class="sr-only">Toggle navigation</span>
+		      			<span class="icon-bar"></span>
+		      			<span class="icon-bar"></span>
+		      			<span class="icon-bar"></span>
+	    			</button>
+    			<a class="navbar-brand" href="/promosmartphonecubot/"><img src="img/logoramslex-min.png" alt="Ramslex Engineering Solutions"></a>
+  			</div>
 			<nav class="collapse navbar-collapse dnavbar-collapse" role="navigation">
 				<!-- Collect the nav links, forms, and other content for toggling -->
 			    <ul class="nav navbar-nav">
 			    	<li><a href="/promosmartphonecubot/">Inicio</a></li>
 			    	<li><a href="especificaciones.php">Especificaciones Técnicas</a></li>
-			      	<li><a href="reservar.php">Reservar</a></li>
+			      	<li id="reservar"><a href="reservar.php">Reservar</a></li>
 			      	<li><a href="consultar.php">Consultar</a></li>
+			      	<li><a href="confirmacion.php">Confirmación de Pago</a></li>
 			      	<li><a href="garantia.php">Garantía</a></li>
 			      	<li class="active"><a href="faqs.php">Preguntas Frecuentes</a></li>
 			    </ul>
