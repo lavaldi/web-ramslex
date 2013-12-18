@@ -1,13 +1,15 @@
+//TODO: move arrow styles and button click code into configurable items, with defaults matching the existing code
+
 /*!
- * Timepicker Component for Twitter Bootstrap
- *
- * Copyright 2013 Joris de Wit
- *
- * Contributors https://github.com/jdewit/bootstrap-timepicker/graphs/contributors
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+* Timepicker Component for Twitter Bootstrap
+*
+* Copyright 2013 Joris de Wit
+*
+* Contributors https://github.com/jdewit/bootstrap-timepicker/graphs/contributors
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
 (function($, window, document, undefined) {
   'use strict';
 
@@ -26,6 +28,9 @@
     this.showSeconds = options.showSeconds;
     this.template = options.template;
     this.appendWidgetTo = options.appendWidgetTo;
+        this.upArrowStyle = options.upArrowStyle;
+        this.downArrowStyle = options.downArrowStyle;
+        this.containerClass = options.containerClass;
 
     this._init();
   };
@@ -38,9 +43,16 @@
       var self = this;
 
       if (this.$element.parent().hasClass('input-append') || this.$element.parent().hasClass('input-prepend')) {
-        this.$element.parent('.input-append, .input-prepend').find('.add-on').on({
-          'click.timepicker': $.proxy(this.showWidget, this)
-        });
+                if (this.$element.parent('.input-append, .input-prepend').find('.add-on').length) {
+                        this.$element.parent('.input-append, .input-prepend').find('.add-on').on({
+                          'click.timepicker': $.proxy(this.showWidget, this)
+                        });                
+                } else {
+                        this.$element.closest(this.containerClass).find('.add-on').on({
+                          'click.timepicker': $.proxy(this.showWidget, this)
+                        });                
+                }
+                
         this.$element.on({
           'focus.timepicker': $.proxy(this.highlightUnit, this),
           'click.timepicker': $.proxy(this.highlightUnit, this),
@@ -271,16 +283,16 @@
 
       templateContent = '<table>'+
          '<tr>'+
-           '<td><a href="#" data-action="incrementHour"><i class="glyphicon glyphicon-chevron-up"></i></a></td>'+
+           '<td><a href="#" data-action="incrementHour"><i class="' + this.upArrowStyle + '"></i></a></td>'+
            '<td class="separator">&nbsp;</td>'+
-           '<td><a href="#" data-action="incrementMinute"><i class="glyphicon glyphicon-chevron-up"></i></a></td>'+
+           '<td><a href="#" data-action="incrementMinute"><i class="' + this.upArrowStyle + '"></i></a></td>'+
            (this.showSeconds ?
              '<td class="separator">&nbsp;</td>'+
-             '<td><a href="#" data-action="incrementSecond"><i class="glyphicon glyphicon-chevron-up"></i></a></td>'
+             '<td><a href="#" data-action="incrementSecond"><i class="' + this.upArrowStyle + '"></i></a></td>'
            : '') +
            (this.showMeridian ?
              '<td class="separator">&nbsp;</td>'+
-             '<td class="meridian-column"><a href="#" data-action="toggleMeridian"><i class="glyphicon glyphicon-chevron-up"></i></a></td>'
+             '<td class="meridian-column"><a href="#" data-action="toggleMeridian"><i class="' + this.upArrowStyle + '"></i></a></td>'
            : '') +
          '</tr>'+
          '<tr>'+
@@ -297,16 +309,16 @@
            : '') +
          '</tr>'+
          '<tr>'+
-           '<td><a href="#" data-action="decrementHour"><i class="glyphicon glyphicon-chevron-down"></i></a></td>'+
+           '<td><a href="#" data-action="decrementHour"><i class="' + this.downArrowStyle + '"></i></a></td>'+
            '<td class="separator"></td>'+
-           '<td><a href="#" data-action="decrementMinute"><i class="glyphicon glyphicon-chevron-down"></i></a></td>'+
+           '<td><a href="#" data-action="decrementMinute"><i class="' + this.downArrowStyle + '"></i></a></td>'+
            (this.showSeconds ?
             '<td class="separator">&nbsp;</td>'+
-            '<td><a href="#" data-action="decrementSecond"><i class="glyphicon glyphicon-chevron-down"></i></a></td>'
+            '<td><a href="#" data-action="decrementSecond"><i class="' + this.downArrowStyle + '"></i></a></td>'
            : '') +
            (this.showMeridian ?
             '<td class="separator">&nbsp;</td>'+
-            '<td><a href="#" data-action="toggleMeridian"><i class="glyphicon glyphicon-chevron-down"></i></a></td>'
+            '<td><a href="#" data-action="toggleMeridian"><i class="' + this.downArrowStyle + '"></i></a></td>'
            : '') +
          '</tr>'+
        '</table>';
@@ -880,7 +892,10 @@
     showInputs: true,
     showMeridian: true,
     template: 'dropdown',
-    appendWidgetTo: '.bootstrap-timepicker'
+    appendWidgetTo: '.bootstrap-timepicker',
+        upArrowStyle: 'glyphicon glyphicon-chevron-up',
+        downArrowStyle: 'glyphicon glyphicon-chevron-down',
+        containerClass: 'bootstrap-timepicker'
   };
 
   $.fn.timepicker.Constructor = Timepicker;

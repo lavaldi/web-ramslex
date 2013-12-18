@@ -21,6 +21,7 @@
 			      	<li id="reservar"><a href="reservar.php">Reservar</a></li>
 			      	<li><a href="consultar.php">Consultar</a></li>
 			      	<li><a href="confirmacion.php">Confirmación de Pago</a></li>
+			      	<li><a href="cpago.php">Centros de Pago y Atención</a></li>
 			      	<li><a href="garantia.php">Garantía</a></li>
 			      	<li><a href="faqs.php">Preguntas Frecuentes</a></li>
 			    </ul>
@@ -46,7 +47,7 @@
 					<div class="col-lg-7">
 						<p>Reserva tu CUBOT a partir del JUEVES 12 DE DICIEMBRE</p>
 						<p>HASTA EL MARTES 19 DE DICIEMBRE, o hasta agotar stock.</p>
-						<p>Ingresa al <a href="www.ramslex.com/promosmartphonecubot/reserva.html">FORMULARIO DE RESERVA</a></p>
+						<p>Ingresa al <a href="reservar.php">FORMULARIO DE RESERVA</a></p>
 						<p>y completa todos tus datos.</p>
 						<p>Una vez que ingreses tus datos obtendrás tu</p>
 						<p>CÓDIGO DE RESERVA. Anota este código e imprime la</p>
@@ -68,7 +69,7 @@
 						<p>y antes del momento del canje abonar(*) el precio del</p>
 						<p>modelo de SMARTPHONE CUBOT que elegiste:</p>
 						<p>CUBOT GT90 - PRECIO S/.299 / CUBOT P9 - PRECIO S/.369</p>
-						<p>CUBOT GT99 - PRECIO S/.579 / CUBOT ONE - PRECIO S/.599</p>
+						<p>CUBOT GT99 - PRECIO S/.569 / CUBOT ONE - PRECIO S/.659</p>
 					</div>
 					<div class="col-lg-5">
 						<figure>

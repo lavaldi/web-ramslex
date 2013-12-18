@@ -8,6 +8,9 @@ body{
 	font-size: 16px;
 	background: #F4F4F4 url('../img/cubes.png') repeat right top; /*8bbfb3*/
 }
+input{
+	line-height: normal;
+}
 footer{
 	font-size: 12px;
 	padding: 20px 0;
@@ -28,6 +31,7 @@ footer a{
 	padding: 5px 5px;
 }
 .dnavbar {
+	font-size: 13px;
 	text-shadow: 0 -1px 0 rgba(0,0,0,.15);
 	background-color: #011b56; /*#efefef*/
 	border-color: #132D63;
@@ -108,4 +112,21 @@ footer a{
 
 .formError .formErrorContent, .formError .formErrorArrow div{
 	background: #C53C3C;
+}
+.nav-pills > li > a {
+	border-radius: 40px;
+	border: 1px solid #428bca;
+}
+.nav-pills > li + li{
+	margin-left: 15px;
+}
+.navbar-inner .nav > li > a {
+	padding: 30px 15px;
+}
+.navbar-inner ul.nav{
+	width: 25%;
+	margin: 0 auto;
+}
+.help-block{
+	color: #C53C3C;
 }

@@ -21,6 +21,7 @@
 			      	<li id="reservar"><a href="reservar.php">Reservar</a></li>
 			      	<li><a href="consultar.php">Consultar</a></li>
 			      	<li><a href="confirmacion.php">Confirmación de Pago</a></li>
+			      	<li><a href="cpago.php">Centros de Pago y Atención</a></li>
 			      	<li><a href="garantia.php">Garantía</a></li>
 			      	<li class="active"><a href="faqs.php">Preguntas Frecuentes</a></li>
 			    </ul>
@@ -45,7 +46,7 @@
 					Debes ser mayor de edad y adquirir la cartilla virtual con el código de reserva que se te generará al momento de la reserva del Smartphone Cubot de tu elección; la reserva se realiza ingresando a la sección de <a href="reservar.php">RESERVAR</a> desde el jueves 12 al martes 17 de diciembre, completas los datos requeridos y aceptas, automáticamente obtendrás tu código de reserva, el cual debes imprimirlo. Esta es la única forma de RESERVA <strong>(*)</strong> que utilizaremos para que pueda participar de esta promoción.
 				</p>
 				<p>
-					Te enviaremos un correo electrónico a partir del miércoles 18 de diciembre, comunicándote la fecha y confirmando el lugar de canje. Con tu cartilla impresa, acércate al centro de canje y podrás obtener tu Smartphone CUBOT de tu elección según los siguientes precios: <strong>Smartphone Cubot GT90 – Precio S/. 299.00 / Smartphone Cubot P9 – Precio S/. 369.00 / Smartphone Cubot GT99 – Precio S/. 579.00 / Smartphone Cubot ONE – Precio S/. 599.00</strong>.
+					Te enviaremos un correo electrónico a partir del miércoles 18 de diciembre, comunicándote la fecha y confirmando el lugar de canje. Con tu cartilla impresa, acércate al centro de canje y podrás obtener tu Smartphone CUBOT de tu elección según los siguientes precios: <strong>Smartphone Cubot GT90 – Precio S/. 299.00 / Smartphone Cubot P9 – Precio S/. 369.00 / Smartphone Cubot GT99 – Precio S/. 569.00 / Smartphone Cubot ONE – Precio S/. 659.00</strong>.
 				</p>
 				<span class="help-block">* Las reservas se harán durante los días 12 al 17 de diciembre o hasta agotar el stock de 1,000 unidades por modelo.</span>
 
@@ -58,7 +59,7 @@
 				</p>
 				<p><strong>Si me equivoqué en ingresar algún dato al momento de registrarme, ¿cómo lo puedo cambiar?</strong></p>
 				<p>
-					Si te equivocaste en algún dato ingresado, deberás completar el formulario de <a href="consultas.php">CONSULTAS</a> indicando los datos correctos. Recibirás un correo electrónico de respuesta indicando que el cambio se ha realizado.
+					Si te equivocaste en algún dato ingresado, deberás completar el formulario de <a href="consultar.php">CONSULTAS</a> indicando los datos correctos. Recibirás un correo electrónico de respuesta indicando que el cambio se ha realizado.
 				</p>
 
 				<p><strong>¿Debo tener la cartilla virtual impresa para canjear mi Smartphone CUBOT?</strong></p>
@@ -79,7 +80,7 @@
 
 				<p><strong>¿Qué hago si no puedo ir al centro de canje en la fecha asignada?</strong></p>
 				<p>
-					Debe comunicarse a través del formulario de <a href="consultas.php">CONSULTAS</a> e indicar que se le reprograme el canje. Nosotros le contestaremos a través de un correo electrónico. Recuerde que el canje solamente se realizará hasta el martes 31 de diciembre.
+					Debe comunicarse a través del formulario de <a href="consultar.php">CONSULTAS</a> e indicar que se le reprograme el canje. Nosotros le contestaremos a través de un correo electrónico. Recuerde que el canje solamente se realizará hasta el martes 31 de diciembre.
 				</p>
 
 				<div class="page-header">

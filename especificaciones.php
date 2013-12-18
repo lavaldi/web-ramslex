@@ -21,6 +21,7 @@
 			      	<li id="reservar"><a href="reservar.php">Reservar</a></li>
 			      	<li><a href="consultar.php">Consultar</a></li>
 			      	<li><a href="confirmacion.php">Confirmación de Pago</a></li>
+			      	<li><a href="cpago.php">Centros de Pago y Atención</a></li>
 			      	<li><a href="garantia.php">Garantía</a></li>
 			      	<li><a href="faqs.php">Preguntas Frecuentes</a></li>
 			    </ul>
@@ -53,6 +54,7 @@
 						<p>Cámara frontal de 2MP</p>
 						<p>Versión de Android OS 4.2</p>
 						<p>4GB ROM - 512MB RAM</p>
+						<p>Mayor información <a href="pdf/GT90.pdf">AQUÍ</a></p>
 					</div>
 				</div>
 			</div>
@@ -70,6 +72,7 @@
 						<p>Cámara frontal de 2MP</p>
 						<p>Versión de Android OS 4.2.2</p>
 						<p>4GB ROM - 512MB RAM</p>
+						<p>Mayor información <a href="pdf/P9.pdf">AQUÍ</a></p>
 					</div>
 					<div class="col-lg-5">
 						<figure>
@@ -97,6 +100,7 @@
 						<p>Cámara frontal de 5MP</p>
 						<p>Versión de Android OS 4.2</p>
 						<p>4GB ROM - 1GB RAM</p>
+						<p>Mayor información <a href="pdf/GT99.pdf">AQUÍ</a></p>
 					</div>
 				</div>
 			</div>
@@ -114,6 +118,7 @@
 						<p>Cámara frontal de 5MP</p>
 						<p>Versión de Android OS 4.2</p>
 						<p>8GB ROM - 1GB RAM</p>
+						<p>Mayor información <a href="pdf/One.pdf">AQUÍ</a></p>
 					</div>
 					<div class="col-lg-5">
 						<figure>

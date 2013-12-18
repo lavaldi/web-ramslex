@@ -21,6 +21,7 @@
 			      	<li id="reservar"><a href="reservar.php">Reservar</a></li>
 			      	<li><a href="consultar.php">Consultar</a></li>
 			      	<li><a href="confirmacion.php">Confirmación de Pago</a></li>
+			      	<li><a href="cpago.php">Centros de Pago y Atención</a></li>
 			      	<li class="active"><a href="garantia.php">Garantía</a></li>
 			      	<li><a href="faqs.php">Preguntas Frecuentes</a></li>
 			    </ul>

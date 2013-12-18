@@ -662,6 +662,9 @@ dd {
   .dl-horizontal dd:after {
     clear: both;
   }
+  .navbar-inner ul.nav{
+    width: auto;
+  }
 }
 
 abbr[title],
@@ -817,6 +820,9 @@ pre code {
 @media (min-width: 992px) {
   .container {
     width: 970px;
+  }
+  .navbar-inner ul.nav{
+    width: auto;
   }
 }
 

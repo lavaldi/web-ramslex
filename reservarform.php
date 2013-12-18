@@ -21,86 +21,152 @@
 	ALTER TABLE `reservascubot`.`reservas` ADD COLUMN `codigoreserva` VARCHAR(15) NULL  AFTER `kingston` 
 , ADD UNIQUE INDEX `codigoreserva_UNIQUE` (`codigoreserva` ASC) ;
 	*/
-	$cod_equip		= 	$_POST['selectEquip'];
-	$nombres		=	$_POST['nombres']; 
-	$apellidos		= 	$_POST['apellidos'];
-	$dni			=	$_POST['dni'];
-	$sexo			=	$_POST['sexo'];
-	$telefono		=	$_POST['telefono'];
-	$distrito		= 	$_POST['distrito'];
-	$mail 			=	$_POST['email'];
-	$conf_email		=	$_POST['conf-email'];
+	function getCode(){
+        $code = '' ;
+        $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ023456789"; 
+        srand((double)microtime()*1000000); 
+        for ($i=0;$i<6;$i++) { 
+	        $num = rand()%20; 
+	        $tmp = substr($chars, $num, 1); 
+	        $code = $code.$tmp; 
+        }
+        $code = "TRUJ-RX-".$code;
+    	return $code; 
+    }
+	
+	require_once('recaptcha/recaptchalib.php');
+	$band 			= 	false;
+	$success 		= 	true;
+	$envio 			= 	array();
+
+	$publickey 		= 	"6Lct8esSAAAAAF-dHVtfJ2mcq3jLbdNN_D0mHtEf";
+	$privatekey 	= 	"6Lct8esSAAAAADh5eKdnTJ-5MD9sBO-oL3NX0-a5";
+	$error 			= 	null;
+
+	$formulario		= 	$_REQUEST['formulario'];
+	$datos			= 	array();
+
+	parse_str($formulario,$datos);
+
+	$cod_equip		= 	$datos['selectEquip'];
+	$nombres		=	$datos['nombres']; 
+	$apellidos		= 	$datos['apellidos'];
+	$dni			=	$datos['dni'];
+	$sexo			=	$datos['sexo'];
+	$telefono		=	$datos['telefono'];
+	$distrito		= 	$datos['distrito'];
+	$mail 			=	$datos['email'];
+	$conf_email		=	$datos['conf-email'];
 	$notificaciones	=	'';
 	$kingston		=	'';
 	$equipo 		= 	'';
+	$monto			=	0;
 
-	switch ($cod_equip) {
-		case '1':
-			$equipo = 'Cubot GT90';
-			break;
-		case '2':
-			$equipo = 'Cubot P9';
-			break;
-		case '3':
-			$equipo = 'Cubot GT99';
-			break;
-		case '4':
-			$equipo = 'Cubot One';
-			break;
+	if ($datos["recaptcha_response_field"]) {
+        $resp = recaptcha_check_answer ($privatekey,
+            $_SERVER["REMOTE_ADDR"],
+            $datos["recaptcha_challenge_field"],
+            $datos["recaptcha_response_field"]);
+
+        if ($resp->is_valid) {
+                $band = true;
+        } else {
+                $band = false;
+        }
 	}
 
-	if (isset($_POST['notificaciones'])){
-		$notificaciones = 'si';
-	}
-	else{
-		$notificaciones = 'no';
-	}
-
-	if (isset($_POST['kingston'])){
-		$kingston = 'si';
-	}
-	else{
-		$kingston = 'no';
-	}
-
-	// servidor, usuario, contrasenia
-	$conexion = mysql_connect ("localhost", "root", "") or die ("No se puede conectar con el servidor"); /*usuario= cmclmcom_webmast ---- contrasenia=CLMwebmaster123*/
-	mysql_select_db ("reservascubot") or die ("No se puede seleccionar la base de datos"); /*BD = cmclmcom_testedu*/
-
-    $fecha = date ("Y-m-d"); // Fecha actual
-    $instruccion = "INSERT into reservas (fecha, nombres, apellidos, equipo, dni, sexo, telefono, distrito, correo, notificaciones, kingston) VALUES ('".$fecha."','".$nombres."', '".$apellidos."', '".$equipo."', '".$dni."', '".$sexo."', '".$telefono."', '".$distrito."', '".$mail."', '".$notificaciones."','".$kingston."')";
-    $consulta = mysql_query ($instruccion, $conexion)
-         or die ("Fallo en la consulta");
-    mysql_close ($conexion);
-
-	$conexion = mysql_connect ("localhost", "root", "") or die ("No se puede conectar con el servidor"); /*usuario= cmclmcom_webmast ---- contrasenia=CLMwebmaster123*/
-	mysql_select_db ("reservascubot") or die ("No se puede seleccionar la base de datos"); /*BD = cmclmcom_testedu*/    
-    $instruccion1 = "SELECT COUNT(*) FROM reservas";
-	$consulta1 = mysql_query ($instruccion1, $conexion)
-         or die ("Fallo en la consulta1");
-    mysql_close ($conexion);
-
-    $num = $consulta1 + 1;
-    $resp = $num - 1;
-    $cod = "TRUJ-RX-".$resp;
-
-    $conexion = mysql_connect ("localhost", "root", "") or die ("No se puede conectar con el servidor"); /*usuario= cmclmcom_webmast ---- contrasenia=CLMwebmaster123*/
-	mysql_select_db ("reservascubot") or die ("No se puede seleccionar la base de datos"); /*BD = cmclmcom_testedu*/
-    $instruccion2 = "UPDATE reservas SET codigoreserva ='".$cod."' WHERE idreservas = ".$resp;
-    $consulta2 = mysql_query ($instruccion2, $conexion)
-         or die ("Fallo en la consulta2");
-    mysql_close ($conexion);
-
-	if($consulta2){
-		$mensaje		=	"La reserva de ha sido realizada con éxito! \n".
-							"Tu código de reserva es ".$cod;
-		$para			=	$mail;
-		$subject		= 	"Reserva de CUBOT realizada";
-		$mainheaders	= 	"From: RAMSLEX TECHNOLOGIES";
-
-		$resultado = mail ($para, $subject, $mensaje, $mainheaders);
-		if($resultado){
-			header('Location: reservar.php?band=true'); 
+	if ($band) {
+		
+		switch ($cod_equip) {
+			case '1':
+				$equipo = 'Cubot GT90';
+				$monto 	= 299; 
+				break;
+			case '2':
+				$equipo = 'Cubot P9';
+				$monto 	= 369; 
+				break;
+			case '3':
+				$equipo = 'Cubot GT99';
+				$monto 	= 569; 
+				break;
+			case '4':
+				$equipo = 'Cubot One';
+				$monto 	= 659; 
+				break;
 		}
+
+		if (isset($datos['notificaciones'])){
+			$notificaciones = 'si';
+		}
+		else{
+			$notificaciones = 'no';
+		}
+
+		if (isset($datos['kingston'])){
+			$kingston = 'si';
+			$monto = $monto + 20;
+		}
+		else{
+			$kingston = 'no';
+		}
+
+		// servidor, usuario, contrasenia
+		$conexion = mysqli_connect ("localhost", "root", "") or die ("No se puede conectar con el servidor"); /*usuario= cmclmcom_webmast ---- contrasenia=CLMwebmaster123*/
+		mysqli_select_db ($conexion,"reservascubot") or die ("No se puede seleccionar la base de datos"); /*BD = cmclmcom_testedu*/
+
+		mysqli_autocommit($conexion,FALSE);
+
+		do{
+			$code = getCode();
+			$instruccion3 = "SELECT codigoreserva FROM reservas WHERE codigoreserva='".$code."'";
+			$consulta3 = mysqli_fetch_array(mysqli_query($conexion,$instruccion3),MYSQLI_ASSOC);
+		} while($consulta3['codigoreserva'] != null);
+
+	    $fecha = date ("Y-m-d"); // Fecha actual
+	    $instruccion = "INSERT into reservas (fecha, nombres, apellidos, equipo, dni, sexo, telefono, distrito, correo, notificaciones, kingston, codigoreserva) VALUES ('".$fecha."','".$nombres."', '".$apellidos."', '".$equipo."', '".$dni."', '".$sexo."', '".$telefono."', '".$distrito."', '".$mail."', '".$notificaciones."','".$kingston."', '".$code."')";
+	    $consulta = mysqli_query($conexion,$instruccion);
+
+	    if(!$consulta){
+	    	$success = false;
+	    	$envio =  array('band'=>false,'cod'=>$cod, 'msj'=>'Algo salió mal, intente nuevamente');
+	    }
+   		else{
+
+		    $envio =  array('band'=>$band,'cod'=>$cod);
+	    	$mensaje		=	"La reserva de ha sido realizada con éxito! \n".
+								"Tu código de reserva es ".$cod."\n".
+								"Tus Datos son: \n".
+								"Equipo a separar".$equipo."\n".
+								"Memoria kingston: ".$kingston."\n".
+								"Total a PAGAR: ".$monto."\n".
+								"Nombre: ".$nombres." ".$apellidos."\n".
+								"DNI: ".$dni."\n".
+								"Sexo: ".$sexo."\n".
+								"N° de Teléfono o Celular: ".$telefono."\n".
+								"Correo: ".$mail."\n";
+			$para			=	$mail;
+			$subject		= 	"Reserva de CUBOT realizada";
+			$mainheaders	= 	"From: RAMSLEX ENGINEERING TECHNOLOGIES";
+
+			$envio =  array('band'=>$band,'cod'=>$cod, 'msj'=>':)');
+
+			$resultado = mail ($para, $subject, $mensaje, $mainheaders);
+
+			if(!$resultado){
+				$success = false;
+				$envio =  array('band'=>false,'cod'=>$cod, 'msj'=>'Algo salió mal, intente nuevamente');
+			}
+		}
+		if(!$success) {
+			mysqli_rollback($conexion);
+		} else {
+			mysqli_commit($conexion);
+		}
+		mysqli_close($conexion);
 	}
+	else{
+		$envio =  array('band'=>$band,'cod'=>null,'msj'=>'Captcha incorrecto');
+	}
+	echo json_encode($envio);
 ?>
