@@ -18,6 +18,10 @@
 	<script type="text/javascript" src="js/jquery.validationEngine.js"></script>
 	<script>
 		$(document).ready(function(){
+			$('.carousel').carousel({
+				interval: false
+			});
+
 			$("form").validationEngine();
 
 			$(".timepicker").timepicker({

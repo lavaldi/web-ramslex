@@ -40,9 +40,27 @@
 			<div class="col-lg-10 col-lg-offset-1">
 				<div class="row">
 					<div class="col-lg-5">
-						<figure>
-						  	<img src="img/cubot-gt90.png" alt="Cubot GT90">
-						</figure>
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner">
+							    <div class="item active">
+							      	<img style="margin: 0 auto;" src="img/cubot-gt90.png" alt="Cubot GT90">
+							      	<div class="carousel-caption">
+							      	</div>
+							    </div>
+							    <div class="item">
+							      	<iframe width="417" height="375" src="//www.youtube.com/embed/gsULWWZfJw0" frameborder="0" allowfullscreen></iframe>
+							    </div>
+							</div>
+
+							<!-- Controls -->
+							<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+							    <span class="glyphicon glyphicon-chevron-left"></span>
+							</a>
+							<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+						</div>
 					</div>
 					<div class="col-lg-7">
 						<h2>Cubot GT90</h2>
