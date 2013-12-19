@@ -7,12 +7,12 @@
     <meta name="author" content="CLM Developers">
     <title>Login - Promoción Smartphone Cubot</title>
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-timepicker.css">
-    <link rel="stylesheet" type="text/css" href="css/datepicker.css">
-    <link rel="stylesheet" type="text/css" href="css/validationEngine.jquery.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="../css/datepicker.css">
+    <link rel="stylesheet" type="text/css" href="../css/validationEngine.jquery.css">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
 </head>
@@ -24,10 +24,10 @@
                     <button type="button" class="close" data-dismiss="alert">×</button>
                     <strong>¡Ooops!</strong> Password incorrecto, vuelve a intentarlo.</div>';}
         ?>
-        <form class="form-signin" role="form" action="loginform.php" method="post">
+        <form class="form-signin" role="form" action="validate.php" method="post">
             <h2 class="form-signin-heading">Log in</h2>
-            <input type="text" class="form-control" placeholder="Email" required autofocus>
-            <input type="password" class="form-control" placeholder="Password" required>
+            <input type="text" name="id" class="form-control" placeholder="Email" required autofocus>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
         </form>
 

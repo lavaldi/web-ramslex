@@ -40,7 +40,7 @@
 			<div class="col-lg-10 col-lg-offset-1">
 				<div class="row">
 					<div class="col-lg-5">
-						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+						<div id="carousel1" class="carousel slide" data-ride="carousel">
 							<!-- Wrapper for slides -->
 							<div class="carousel-inner">
 							    <div class="item active">
@@ -48,16 +48,16 @@
 							      	<div class="carousel-caption">
 							      	</div>
 							    </div>
-							    <div class="item">
-							      	<iframe width="417" height="375" src="//www.youtube.com/embed/gsULWWZfJw0" frameborder="0" allowfullscreen></iframe>
+							    <div class="item" style="padding: 17.5% 0 17.5% 9%;">
+							      	<iframe width="320" height="240" src="//www.youtube.com/embed/gsULWWZfJw0" frameborder="0" allowfullscreen></iframe>
 							    </div>
 							</div>
 
 							<!-- Controls -->
-							<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+							<a class="left carousel-control" href="#carousel1" data-slide="prev">
 							    <span class="glyphicon glyphicon-chevron-left"></span>
 							</a>
-							<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+							<a class="right carousel-control" href="#carousel1" data-slide="next">
 								<span class="glyphicon glyphicon-chevron-right"></span>
 							</a>
 						</div>
@@ -93,9 +93,27 @@
 						<p>Mayor información <a href="pdf/P9.pdf">AQUÍ</a></p>
 					</div>
 					<div class="col-lg-5">
-						<figure>
-						  	<img src="img/cubot-p9.png" alt="Cubot P9">
-						</figure>
+						<div id="carousel2" class="carousel slide" data-ride="carousel">
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner">
+							    <div class="item active">
+							      	<img style="margin: 0 auto;" src="img/cubot-p9.png" alt="Cubot P9">
+							      	<div class="carousel-caption">
+							      	</div>
+							    </div>
+							    <div class="item" style="padding: 17.5% 0 17.5% 9%;">
+							      	<iframe width="320" height="240" src="//www.youtube.com/embed/gsULWWZfJw0" frameborder="0" allowfullscreen></iframe>
+							    </div>
+							</div>
+
+							<!-- Controls -->
+							<a class="left carousel-control" href="#carousel2" data-slide="prev">
+							    <span class="glyphicon glyphicon-chevron-left"></span>
+							</a>
+							<a class="right carousel-control" href="#carousel2" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -104,9 +122,27 @@
 			<div class="col-lg-10 col-lg-offset-1">
 				<div class="row">
 					<div class="col-lg-5">
-						<figure>
-						  	<img src="img/cubot-gt99.png" alt="Cubot GT99">
-						</figure>
+						<div id="carousel3" class="carousel slide" data-ride="carousel">
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner">
+							    <div class="item active">
+							      	<img style="margin: 0 auto;" src="img/cubot-gt99.png" alt="Cubot GT99">
+							      	<div class="carousel-caption">
+							      	</div>
+							    </div>
+							    <div class="item" style="padding: 17.5% 0 17.5% 9%;">
+							      	<iframe width="320" height="240" src="//www.youtube.com/embed/gsULWWZfJw0" frameborder="0" allowfullscreen></iframe>
+							    </div>
+							</div>
+
+							<!-- Controls -->
+							<a class="left carousel-control" href="#carousel3" data-slide="prev">
+							    <span class="glyphicon glyphicon-chevron-left"></span>
+							</a>
+							<a class="right carousel-control" href="#carousel3" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+						</div>
 					</div>
 					<div class="col-lg-7">
 						<h2>Cubot GT99</h2>
@@ -139,9 +175,27 @@
 						<p>Mayor información <a href="pdf/One.pdf">AQUÍ</a></p>
 					</div>
 					<div class="col-lg-5">
-						<figure>
-						  	<img src="img/cubot-one.png" alt="Cubot P9">
-						</figure>
+						<div id="carousel4" class="carousel slide" data-ride="carousel">
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner">
+							    <div class="item active">
+							      	<img style="margin: 0 auto;" src="img/cubot-one.png" alt="Cubot ONE">
+							      	<div class="carousel-caption">
+							      	</div>
+							    </div>
+							    <div class="item" style="padding: 17.5% 0 17.5% 9%;">
+							      	<iframe width="320" height="240" src="//www.youtube.com/embed/gsULWWZfJw0" frameborder="0" allowfullscreen></iframe>
+							    </div>
+							</div>
+
+							<!-- Controls -->
+							<a class="left carousel-control" href="#carousel4" data-slide="prev">
+							    <span class="glyphicon glyphicon-chevron-left"></span>
+							</a>
+							<a class="right carousel-control" href="#carousel4" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -1,4 +1,5 @@
 <?php
+	require_once("db_conf.php");
 	require_once('recaptcha/recaptchalib.php');
 	$band = false;
 
@@ -25,9 +26,8 @@
 
 	if ($band) {
 
-		// servidor, usuario, contrasenia
-		$conexion = mysql_connect ("localhost", "root", "") or die ("No se puede conectar con el servidor"); /*usuario= cmclmcom_webmast ---- contrasenia=CLMwebmaster123*/
-		mysql_select_db ("reservascubot") or die ("No se puede seleccionar la base de datos"); /*BD = cmclmcom_testedu*/
+		$conexion = mysql_connect ($server, $user, $password) or die ("No se puede conectar con el servidor"); 
+		mysql_select_db ($dbname) or die ("No se puede seleccionar la base de datos"); 
 
 	    $instruccion = "SELECT * FROM reservas WHERE dni='".$dni."' AND telefono='".$celular."' AND correo='".$mail."'";
 	    $consulta = mysql_query ($instruccion, $conexion)

@@ -21,7 +21,6 @@
 			$('.carousel').carousel({
 				interval: false
 			});
-
 			$("form").validationEngine();
 
 			$(".timepicker").timepicker({

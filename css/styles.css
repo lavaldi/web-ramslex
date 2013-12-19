@@ -130,6 +130,9 @@ footer a{
 .help-block{
 	color: #C53C3C;
 }
+.carousel-control{
+	width: 0;
+}
 .carousel-control.left, .carousel-control.right{
 	background: transparent;
 }

@@ -1,4 +1,5 @@
 <?php
+	require_once("db_conf.php");
 	require_once('recaptcha/recaptchalib.php');
 	$band 			= 	false;
 	$success 		= 	true;
@@ -34,10 +35,9 @@
 
 	if ($band) {
 
-		// servidor, usuario, contrasenia
-		$conexion = mysqli_connect ("localhost", "root", "") or die ("No se puede conectar con el servidor"); /*usuario= cmclmcom_webmast ---- contrasenia=CLMwebmaster123*/
-		mysqli_select_db ($conexion,"reservascubot") or die ("No se puede seleccionar la base de datos"); /*BD = cmclmcom_testedu*/
-
+		$conexion = mysqli_connect ($server, $user, $password) or die ("No se puede conectar con el servidor"); 
+		mysqli_select_db ($conexion,$dbname) or die ("No se puede seleccionar la base de datos"); 
+		
 		mysqli_autocommit($conexion,FALSE);
 
 		$instruccion = "SELECT * FROM reservas WHERE codigoreserva='".$codigoreserva."'";
@@ -56,7 +56,7 @@
 
 		    if(!$consulta1){
 		    	$success = false;
-		    	$envio =  array('band'=>false,'cod'=>$codigoreserva, 'msj'=>'Algo salió mal, intente nuevamente '.$consulta1);
+		    	$envio =  array('band'=>false,'cod'=>$codigoreserva, 'msj'=>'Algo salió mal, intente nuevamente 1');
 		    }
 	   		else{
 				$msg = 	"Estimad@ ".$consulta['nombres']."\n".
