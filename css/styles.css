@@ -44,9 +44,9 @@ footer a{
   	display: inline-block;
   	float: none;
 }
-.dnavbar-collapse{
+/*.dnavbar-collapse{
 	display: block;
-}
+}*/
 .dnavbar .navbar-nav > .active > a,.dnavbar .navbar-nav > .active > a:hover {
 	color: #fff;
 	background-color: #004a90; /* 3B5998 #132D63;*/
@@ -63,6 +63,9 @@ footer a{
 }
 #banner .col-lg-12{
 	padding: 0;
+}
+#banner img{
+	width: 100%;
 }
 #cubot-gt90, #cubot-gt99, #cubot-p9, #cubot-one, #paso1, #paso2, #pago{
 	padding: 50px 0;
@@ -132,7 +135,17 @@ footer a{
 }
 .carousel-control{
 	width: 0;
+color: #000;
+text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+.carousel-control:hover{
+color: #000;
 }
 .carousel-control.left, .carousel-control.right{
 	background: transparent;
+}
+@media (max-width: 767px) {
+	#tablereservas_wrapper .col-xs-6, #tableconfirmaciones_wrapper .col-xs-6{
+		width: auto;
+	}
 }

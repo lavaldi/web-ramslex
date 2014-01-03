@@ -50,14 +50,14 @@
 				"Celular: ".$celular."\n".
 				"Correo: ".$mail."\n".
 				"Consulta: ".$consulta."\n"; 
-		$to = "clindy.26@gmail.com";
+		$to = "consultacliente.cubot@ramslex.com";
 		$subject = "CONSULTA: ".$tipo_consulta;
 		$mainheaders= "From: ".$mail;
 
 		$resultado = mail ($to, $subject, $msg);
 
 		if($resultado){
-			header('Location: consultar.php?band='$band); 
+			header('Location: consultar.php?band='.$band); 
 		}
 	}
 	else

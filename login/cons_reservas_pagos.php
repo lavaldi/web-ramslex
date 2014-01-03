@@ -55,6 +55,7 @@ if(!isset($_SESSION["user"]))
 				<ul class="nav nav-tabs">
 					<li class="active"><a href="#reservas" data-toggle="tab">Reservas</a></li>
 					<li><a href="#pconf" data-toggle="tab">Pagos Confirmados</a></li>
+					<button id="actualizar" class="btn btn-default" type="button" style="margin-top: 6px;"><i class="glyphicon glyphicon-repeat"></i></button>
 				</ul>
 
 				<!-- Tab panes -->
@@ -62,13 +63,18 @@ if(!isset($_SESSION["user"]))
 				  	<div class="tab-pane active" id="reservas">
 				  		<div class="panel panel-default" style="border-radius: 0; padding: 5px;">
 				  			<br>
+				  			<form id="formtablereservas">
+				  				<button id="xlstablereservas" type="submit" class="btn btn-default"><i class="glyphicon glyphicon-file"></i> Exportar</button><hr>
 						  	<table id="tablereservas" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
 								<thead>
 									<tr>
 										<th>Fecha de Reserva</th>
 										<th>Nombre</th>
 										<th>Apellidos</th>
+										<th>Correo</th>
+<th>Teléfono</th>
 										<th>Equipo Selec.</th>
+<th>Monto</th>
 										<th>DNI</th>
 										<th>Sexo</th>
 										<th>Distrito</th>
@@ -79,17 +85,21 @@ if(!isset($_SESSION["user"]))
 								</thead>
 								<tbody></tbody>
 							</table>
+							</form>
 						</div>
 				  	</div>
 				  	<div class="tab-pane" id="pconf">
 				  		<div class="panel panel-default" style="border-radius: 0; padding: 5px;">
 				  			<br>
+				  			<form id="formtableconfirmaciones">
+				  				<button id="xlstableconfirmaciones" type="submit" class="btn btn-default"><i class="glyphicon glyphicon-file"></i> Exportar</button><hr>
 					  		<table id="tableconfirmaciones" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
 								<thead>
 									<tr>
+<th>Fecha Conf.</th>
+										<th>Numero Op.</th>
 										<th>Fecha Pago</th>
 										<th>Hora</th>
-										<th>Numero Op.</th>
 										<th>Monto</th>
 										<th>Fecha Res.</th>
 										<th>Nombre</th>
@@ -101,6 +111,7 @@ if(!isset($_SESSION["user"]))
 								</thead>
 								<tbody></tbody>
 							</table>
+							</form>
 						</div>
 				  	</div>
 				</div>
@@ -111,6 +122,7 @@ if(!isset($_SESSION["user"]))
 <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 
 <script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="../js/datatable_plugins.js"></script>
 <script type="text/javascript" language="javascript" src="../js/dataTables.bootstrap.js"></script>
 
 <script type="text/javascript" src="../js/bootstrap.js"></script>
@@ -122,7 +134,7 @@ if(!isset($_SESSION["user"]))
 	$(document).ready(function(){
 		$("form").validationEngine({promptPosition:'bottomLeft'});
 
-		$('#tablereservas').dataTable( {
+		var tablereservas =  $('#tablereservas').dataTable( {
         	"bProcessing": true, 
         	"oLanguage": {
                     "sUrl": "ES.txt"
@@ -132,7 +144,10 @@ if(!isset($_SESSION["user"]))
         		[	{ "mDataProp": "fecha"},
                   	{ "mDataProp": "nombres"},
                   	{ "mDataProp": "apellidos"},
+                  	{ "mDataProp": "correo"},
+{ "mDataProp": "telefono"},
                   	{ "mDataProp": "equipo"},
+{ "mDataProp": "monto"},
                   	{ "mDataProp": "dni"},
                   	{ "mDataProp": "sexo"},
                   	{ "mDataProp": "distrito"},
@@ -142,16 +157,17 @@ if(!isset($_SESSION["user"]))
                  ]
     	});
 
-    	$('#tableconfirmaciones').dataTable( {
+    	var tableconfirmaciones=  $('#tableconfirmaciones').dataTable( {
         	"bProcessing": true,
         	"oLanguage": {
                     "sUrl": "ES.txt"
             }, 
         	"sAjaxSource": 'tablaconfirmpago.php',
         	"aoColumns":
-        		[	{ "mDataProp": "fecha_pago"},
+        		[	{ "mDataProp": "fecha_conf"},
+{ "mDataProp": "num_operacion"},
+{ "mDataProp": "fecha_pago"},
                   	{ "mDataProp": "hora"},
-        			{ "mDataProp": "num_operacion"},
                   	{ "mDataProp": "monto"},
                   	{ "mDataProp": "fecha"},
                   	{ "mDataProp": "nombres"},
@@ -176,6 +192,11 @@ if(!isset($_SESSION["user"]))
 				$("#repass").val("");
 				$("#newpass").val("");
 			});
+    	});
+    	$("#actualizar").click(function(e){
+    		e.preventDefault();
+    		tablereservas.fnReloadAjax("tablareservas.php");
+    		tableconfirmaciones.fnReloadAjax("tablaconfirmpago.php");
     	});
 	});
 </script>

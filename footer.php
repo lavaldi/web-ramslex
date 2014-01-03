@@ -9,6 +9,31 @@
 			</p>
 		</div>
 	</footer>
+
+	<!-- AddThis Smart Layers BEGIN -->
+	<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52c583d92f0ead2c"></script>
+	<script type="text/javascript">
+	  addthis.layers({
+	    'theme' : 'transparent',
+	    'share' : {
+	      'position' : 'left',
+	      //'numPreferredServices' : 5
+	      'services' : 'facebook,twitter,google_plusone_share,pinterest_share,more',
+		  'postShareTitle' : 'Gracias por compartir!',
+		  'desktop' : true,
+		  'mobile' : true
+	    }, 
+	    'follow' : {
+	      'services' : [
+	        {'service': 'facebook', 'id': 'RAMSLEX.TECHNOLOGIES'},
+	        {'service': 'youtube', 'id': 'RAMSLEXtechnologies'}
+	      ]
+	    }   
+	  });
+	</script>
+	<!-- AddThis Smart Layers END -->
+
 	<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/jquery.bootstrap.wizard.js"></script>
@@ -18,9 +43,10 @@
 	<script type="text/javascript" src="js/jquery.validationEngine.js"></script>
 	<script>
 		$(document).ready(function(){
-			$('.carousel').carousel({
+			$('#carousel1,#carousel2,#carousel3,#carousel4').carousel({
 				interval: false
 			});
+			$('#carouselconf').carousel();
 			$("form").validationEngine();
 
 			$(".timepicker").timepicker({
@@ -63,6 +89,7 @@
 									$("#tagcodigo").text(data.cod);
 									$("#tagcorreo").text($("#email").val());
 									$(".previous").css("display","none");
+$(".next").css("display","none");
 								}
 								else{
 									bande = true;
@@ -117,7 +144,9 @@
 								console.log(data);
 								data = $.parseJSON(data);
 								if (data.band==true) {
-									$("#datos").text(data.msj);
+									$("#datos").html(data.msj);
+$(".previous").css("display","none");
+$(".next").css("display","none");
 								}
 								else{
 									bande = true;

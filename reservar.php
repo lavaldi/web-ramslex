@@ -148,6 +148,12 @@
 							    	</div>
 							  	</div>
 							  	<div class="form-group">
+							    	<label class="col-sm-3 control-label"></label>
+							    	<div class="col-sm-9">
+							  			<span class="help-block">Asegúrate que tu bandeja de entrada esté habilitada o funcionando.</span>
+							  		</div>
+							  	</div>
+							  	<div class="form-group">
 							    	<label for="email" class="col-sm-3 control-label">Email</label>
 							    	<div class="col-sm-9">
 							    		<div class="row">
@@ -198,6 +204,7 @@
 									Sus datos han sido validados correctamente, su CÓDIGO DE RESERVA es: <strong><span id="tagcodigo"></span></strong>. Sus datos de validación de reserva han sido enviados al correo <span id="tagcorreo"></span>. <br> 
 									Verifica también en la carpeta Spam o Correo no deseado.
 								</p>
+<p style="text-align:center;"><a class="btn btn-success" href="/promosmartphonecubot/">Retornar a la página principal</a></p>
 							</div>
 					    </div>
 						<ul class="pager wizard">

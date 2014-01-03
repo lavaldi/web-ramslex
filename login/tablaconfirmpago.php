@@ -20,6 +20,7 @@ while ($fila = mysql_fetch_array($consulta, MYSQL_ASSOC)) {
     $reservas[] = array(
         "idconf_pago" => $fila["idconf_pago"],
         "num_operacion" => $fila["num_operacion"],
+"fecha_conf" => $fila["fecha_conf"],
         "fecha_pago" => $fila["fecha_pago"],
         "fecha" => $fila["fecha"],
         "hora" => $fila["hora"],

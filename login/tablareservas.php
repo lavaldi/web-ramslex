@@ -23,6 +23,7 @@ while ($fila = mysql_fetch_array($consulta, MYSQL_ASSOC)) {
     	"nombres" => $fila["nombres"],
     	"apellidos" => $fila["apellidos"],
     	"equipo" => $fila["equipo"],
+"monto" => $fila["monto"],
     	"dni" => $fila["dni"],
     	"sexo" => $fila["sexo"],
     	"telefono" => $fila["telefono"],

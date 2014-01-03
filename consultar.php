@@ -83,6 +83,12 @@
 			      			</div>
 					  	</div>
 					  	<div class="form-group">
+					    	<label class="col-sm-4 control-label"></label>
+					    	<div class="col-sm-8">
+					  			<span class="help-block">Asegúrate que tu bandeja de entrada esté habilitada o funcionando.</span>
+					  		</div>
+					  	</div>
+					  	<div class="form-group">
 					    	<label for="email" class="col-sm-4 control-label">Email</label>
 					    	<div class="col-sm-8">
 					      		<input type="text" class="form-control validate[required,custom[email]]" id="email" name="email" placeholder="tu@email.com">

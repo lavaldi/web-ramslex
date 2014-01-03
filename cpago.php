@@ -41,6 +41,7 @@
 				<div class="page-header">
 					<h2>Centros de Pago</h2>
 				</div>
+			  	<p>Puedes hacer el pago de tu Smartphone CUBOT al número de cuenta corriente <strong>BCP en soles: 570-202-117-003-3 (A nombre de: RAMSLEX ENGINEERING SOLUTIONS S.A.C.)</strong>, en cualquier de las agencias BCP autorizadas o cualquier agente BCP más cercano a ti.</p>
 				<table class="table">
 			    	<tr>
 			    		<th>Lugar</th>

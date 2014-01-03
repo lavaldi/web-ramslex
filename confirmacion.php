@@ -85,61 +85,85 @@
 					    </div>
 					    <div class="tab-pane" id="tab2">
 					    	<p>Ingresa los datos solicitados indicados en voucher de pago:</p>
-							<form id="confirmacionform" class="form-horizontal" role="form" method="post">
-								<input type="hidden" id="codigoreserva" name="codigoreserva">
-							  	<div class="form-group">
-							    	<label for="ope" class="col-sm-3 control-label">N° de Operación</label>
-							    	<div class="col-sm-3">
-							    		<input type="text" class="form-control validate[required,custom[onlyNumberSp]]" id="ope" name="ope">
-							    	</div>
-							  	</div>
-							  	<div class="form-group">
-							    	<label for="fecha" class="col-sm-3 control-label">Fecha</label>
-							    	<div class="col-sm-9">
-							    		<div class="row">
-							    			<div class="col-sm-3">
-							      				<input type="text" class="form-control validate[required] datepicker" id="fecha" name="fecha">
-							      			</div>
-							      			<label for="hora" class="col-sm-3 control-label">Hora</label>
-							      			<div class="col-sm-3">
-							      				<div class="bootstrap-timepicker input-append">
-										            <input type="text" class="form-control validate[required] timepicker" id="hora" name="hora">
-										        </div>
-							      			</div>
-							      		</div>
-							    	</div>
-							  	</div>
-							  	<div class="form-group">
-							    	<label for="pagoSelect" class="col-sm-3 control-label">Monto Total de Pago</label>
-							    	<div class="col-sm-3">
-							    		<select id="pagoSelect" name="pagoSelect" class="form-control validate[required]">
-					      					<option value="299">Cubot GT90 -> S/.299.00</option>
-											<option value="319">Cubot GT90 + MicroSD Kinngston 16 GB-> S/.319.00</option>
-											<option value="369">Cubot P9 -> S/.369.00</option>
-											<option value="389">Cubot P9 + MicroSD Kinngston 16 GB-> S/.389.00</option>
-											<option value="569">Cubot GT99 -> S/.569.00</option>
-											<option value="589">Cubot GT99 + MicroSD Kinngston 16 GB-> S/.589.00</option>
-											<option value="659">Cubot ONE -> S/.659.00</option>
-											<option value="679">Cubot ONE + MicroSD Kinngston 16 GB-> S/.679.00</option>
-					      				</select>
-							    	</div>
-							  	</div>
-							  	<div class="form-group">
-							    	<div class="col-sm-offset-3 col-sm-9">
-							    		<span id="error_captcha" class="help-block"></span>
-						        		<label>
-						          			<?php 
-						          				echo recaptcha_get_html($publickey, $error); 
-						          			?>
-						        		</label>
-							    	</div>
-							  	</div>
-							</form>
+					    	<div class="col-lg-6">
+								<form id="confirmacionform" class="form-horizontal" role="form" method="post">
+									<input type="hidden" id="codigoreserva" name="codigoreserva">
+								  	<div class="form-group">
+								    	<label for="ope" class="col-sm-5 control-label">N° de Operación</label>
+								    	<div class="col-sm-7">
+								    		<input type="text" class="form-control validate[required,custom[onlyNumberSp]]" id="ope" name="ope">
+								    	</div>
+								  	</div>
+								  	<div class="form-group">
+								    	<label for="fecha" class="col-sm-5 control-label">Fecha</label>
+								    	<div class="col-sm-7">
+								    		<input type="text" class="form-control validate[required] datepicker" id="fecha" name="fecha">
+								    	</div>
+								  	</div>
+								  	<div class="form-group">
+								  		<label for="hora" class="col-sm-5 control-label">Hora</label>
+								    	<div class="col-sm-7">
+								      		<input type="text" class="form-control validate[required] timepicker" id="hora" name="hora">
+								    	</div>
+								  	</div>
+								  	<div class="form-group">
+								    	<label for="pagoSelect" class="col-sm-5 control-label">Monto Total de Pago</label>
+								    	<div class="col-sm-7">
+								    		<select id="pagoSelect" name="pagoSelect" class="form-control validate[required]">
+						      					<option value="299">Cubot GT90 -> S/.299.00</option>
+												<option value="319">Cubot GT90 + MicroSD Kinngston 16 GB-> S/.319.00</option>
+												<option value="369">Cubot P9 -> S/.369.00</option>
+												<option value="389">Cubot P9 + MicroSD Kinngston 16 GB-> S/.389.00</option>
+												<option value="569">Cubot GT99 -> S/.569.00</option>
+												<option value="589">Cubot GT99 + MicroSD Kinngston 16 GB-> S/.589.00</option>
+												<option value="659">Cubot ONE -> S/.659.00</option>
+												<option value="679">Cubot ONE + MicroSD Kinngston 16 GB-> S/.679.00</option>
+						      				</select>
+								    	</div>
+								  	</div>
+								  	<div class="form-group">
+								    	<div class="col-sm-offset-5 col-sm-7">
+								    		<span id="error_captcha" class="help-block"></span>
+							        		<label>
+							          			<?php 
+							          				echo recaptcha_get_html($publickey, $error); 
+							          			?>
+							        		</label>
+								    	</div>
+								  	</div>
+								</form>
+							</div>
+							<div class="col-lg-6">
+								<div id="carouselconf" class="carousel slide" data-ride="carousel">
+									<!-- Wrapper for slides -->
+									<div class="carousel-inner">
+									    <div class="item active">
+									      	<img style="margin: 0 auto;" src="img/voucher-banco.png">
+									      	<div class="carousel-caption">
+									      	</div>
+									    </div>
+									    <div class="item">
+									      	<img style="margin: 0 auto;" src="img/voucher-agente.png">
+									      	<div class="carousel-caption">
+									      	</div>
+									    </div>
+									</div>
+
+									<!-- Controls -->
+									<a class="left carousel-control" href="#carouselconf" data-slide="prev">
+									    <span class="glyphicon glyphicon-chevron-left"></span>
+									</a>
+									<a class="right carousel-control" href="#carouselconf" data-slide="next">
+										<span class="glyphicon glyphicon-chevron-right"></span>
+									</a>
+								</div>
+							</div>
 						</div>
 						<div class="tab-pane" id="tab3">
 							<div class="alert alert-dismissable alert-success">
 								<p id="datos">
 								</p>
+<p style="text-align:center;"><a class="btn btn-success" href="/promosmartphonecubot/">Retornar a la página principal</a></p>
 							</div>
 					    </div>
 						<ul class="pager wizard">

@@ -48,8 +48,9 @@
 							      	<div class="carousel-caption">
 							      	</div>
 							    </div>
-							    <div class="item" style="padding: 17.5% 0 17.5% 9%;">
+							    <div class="item" style="padding: 9% 0 9% 9%;">
 							      	<iframe width="320" height="240" src="//www.youtube.com/embed/gsULWWZfJw0" frameborder="0" allowfullscreen></iframe>
+							      	<p>Vea más videos en el canal oficial de <a href="http://www.youtube.com/user/RAMSLEXtechnologies" target="_blank">RAMSLEX TECHNOLOGIES</a></p>
 							    </div>
 							</div>
 
@@ -72,7 +73,7 @@
 						<p>Cámara frontal de 2MP</p>
 						<p>Versión de Android OS 4.2</p>
 						<p>4GB ROM - 512MB RAM</p>
-						<p>Mayor información <a href="pdf/GT90.pdf">AQUÍ</a></p>
+						<p>Mayor información <a href="pdf/GT90.pdf" target="_blank">AQUÍ</a></p>
 					</div>
 				</div>
 			</div>
@@ -90,7 +91,7 @@
 						<p>Cámara frontal de 2MP</p>
 						<p>Versión de Android OS 4.2.2</p>
 						<p>4GB ROM - 512MB RAM</p>
-						<p>Mayor información <a href="pdf/P9.pdf">AQUÍ</a></p>
+						<p>Mayor información <a href="pdf/P9.pdf" target="_blank">AQUÍ</a></p>
 					</div>
 					<div class="col-lg-5">
 						<div id="carousel2" class="carousel slide" data-ride="carousel">
@@ -101,8 +102,9 @@
 							      	<div class="carousel-caption">
 							      	</div>
 							    </div>
-							    <div class="item" style="padding: 17.5% 0 17.5% 9%;">
+							    <div class="item" style="padding: 9% 0 9% 9%;">
 							      	<iframe width="320" height="240" src="//www.youtube.com/embed/gsULWWZfJw0" frameborder="0" allowfullscreen></iframe>
+							      	<p>Vea más videos en el canal oficial de <a href="http://www.youtube.com/user/RAMSLEXtechnologies" target="_blank">RAMSLEX TECHNOLOGIES</a></p>
 							    </div>
 							</div>
 
@@ -130,8 +132,9 @@
 							      	<div class="carousel-caption">
 							      	</div>
 							    </div>
-							    <div class="item" style="padding: 17.5% 0 17.5% 9%;">
+							    <div class="item" style="padding: 9% 0 9% 9%;">
 							      	<iframe width="320" height="240" src="//www.youtube.com/embed/gsULWWZfJw0" frameborder="0" allowfullscreen></iframe>
+							      	<p>Vea más videos en el canal oficial de <a href="http://www.youtube.com/user/RAMSLEXtechnologies" target="_blank">RAMSLEX TECHNOLOGIES</a></p>
 							    </div>
 							</div>
 
@@ -154,7 +157,7 @@
 						<p>Cámara frontal de 5MP</p>
 						<p>Versión de Android OS 4.2</p>
 						<p>4GB ROM - 1GB RAM</p>
-						<p>Mayor información <a href="pdf/GT99.pdf">AQUÍ</a></p>
+						<p>Mayor información <a href="pdf/GT99.pdf" target="_blank">AQUÍ</a></p>
 					</div>
 				</div>
 			</div>
@@ -172,7 +175,7 @@
 						<p>Cámara frontal de 5MP</p>
 						<p>Versión de Android OS 4.2</p>
 						<p>8GB ROM - 1GB RAM</p>
-						<p>Mayor información <a href="pdf/One.pdf">AQUÍ</a></p>
+						<p>Mayor información <a href="pdf/One.pdf" target="_blank">AQUÍ</a></p>
 					</div>
 					<div class="col-lg-5">
 						<div id="carousel4" class="carousel slide" data-ride="carousel">
@@ -183,8 +186,9 @@
 							      	<div class="carousel-caption">
 							      	</div>
 							    </div>
-							    <div class="item" style="padding: 17.5% 0 17.5% 9%;">
+							    <div class="item" style="padding: 9% 0 9% 9%;">
 							      	<iframe width="320" height="240" src="//www.youtube.com/embed/gsULWWZfJw0" frameborder="0" allowfullscreen></iframe>
+							      	<p>Vea más videos en el canal oficial de <a href="http://www.youtube.com/user/RAMSLEXtechnologies" target="_blank">RAMSLEX TECHNOLOGIES</a></p>
 							    </div>
 							</div>
 
