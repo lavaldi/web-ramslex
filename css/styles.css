@@ -149,3 +149,18 @@ color: #000;
 		width: auto;
 	}
 }
+table tr.even.row_selected td {
+        background-color: #B0BED9;
+}
+
+table tr.odd.row_selected td {
+        background-color: #9FAFD1;
+}
+
+table tr.even.row_confirm td {
+        background-color: #8FD8B3;
+}
+
+table tr.odd.row_confirm td {
+        background-color: #7BD18D;
+}

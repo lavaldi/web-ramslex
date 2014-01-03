@@ -476,7 +476,7 @@
 				                        
 				                        <td valign="top" class="mcnTextContent" style="padding-top: 9px;padding-left: 18px;padding-bottom: 9px;padding-right: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 11px;line-height: 125%;text-align: left;">
 				                        
-				                            Mensaje Confirmación de Pago - Promoción Cubot
+				                            Mensaje Datos de Pago por Validar - Promoción Cubot
 				                        </td>
 				                    </tr>
 				                </tbody></table>
@@ -573,7 +573,7 @@
 				<strong>Sexo: </strong> '.$consulta['sexo'].'<br>
 				<strong>N° de Teléfono o Celular: </strong> '.$consulta['telefono'].'<br>
 				<strong>Correo: </strong> '.$consulta['correo'].'<br></p>
-<p style="margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">En breve validaremos sus datos ingresados, luego de confirmar la veracidad de su pago. Verificado su pago le enviaremos un correo de validación de pago. Gracias por su preferencia.</p>
+<p style="margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">En breve validaremos los datos ingresados, luego de confirmar la veracidad de su pago. Verificado su pago le enviaremos un correo de validación de pago. Gracias por su preferencia.</p>
 				                        </td>
 				                    </tr>
 				                </tbody></table>
@@ -643,7 +643,7 @@
 				    </body>
 				</html>';
 				$to = $consulta['correo'];
-				$subject = "Confimacion de Pago CUBOT";
+				$subject = "Datos de Pago por Validar Promosmart CUBOT";
 				$mainheaders	=	"Content-type: text/html; charset=utf-8\r\n";
 				$mainheaders 	.= "From: RAMSLEX ENGINEERING TECHNOLOGIES";
 
@@ -684,7 +684,8 @@
 						"DNI: ".$consulta['dni']."<br>".
 						"Sexo: ".$consulta['sexo']."<br>".
 						"N° de Teléfono o Celular: ".$consulta['telefono']."<br>".
-						"Correo: ".$consulta['correo']."<br>";
+						"Correo: ".$consulta['correo']."<br>".
+						"En breve validaremos los datos ingresados, luego de confirmar la veracidad de su pago. Verificado su pago le enviaremos un correo de validación de pago. Gracias por su preferencia.<br>";
 
 				$envio =  array('band'=>$band,'cod'=>$codigoreserva, 'msj'=>$msg3);
 

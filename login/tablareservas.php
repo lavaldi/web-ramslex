@@ -18,20 +18,20 @@ $reservas = array();
 
 while ($fila = mysql_fetch_array($consulta, MYSQL_ASSOC)) {
     $reservas[] = array(
-    	"idreservas" => $fila["idreservas"],
-    	"fecha" => $fila["fecha"],
-    	"nombres" => $fila["nombres"],
-    	"apellidos" => $fila["apellidos"],
-    	"equipo" => $fila["equipo"],
-"monto" => $fila["monto"],
-    	"dni" => $fila["dni"],
-    	"sexo" => $fila["sexo"],
-    	"telefono" => $fila["telefono"],
-    	"distrito" => $fila["distrito"],
-    	"correo" => $fila["correo"],
-    	"notificaciones" => $fila["notificaciones"],
-    	"kingston" => $fila["kingston"],
-    	"codigoreserva" => $fila["codigoreserva"]
+        "idreservas" => $fila["idreservas"],
+        "fecha" => $fila["fecha"],
+        "nombres" => $fila["nombres"],
+        "apellidos" => $fila["apellidos"],
+        "equipo" => $fila["equipo"],
+        "monto" => $fila["monto"],
+        "dni" => $fila["dni"],
+        "sexo" => $fila["sexo"],
+        "telefono" => $fila["telefono"],
+        "distrito" => $fila["distrito"],
+        "correo" => $fila["correo"],
+        "notificaciones" => $fila["notificaciones"],
+        "kingston" => $fila["kingston"],
+        "codigoreserva" => $fila["codigoreserva"]
     );
 }
 

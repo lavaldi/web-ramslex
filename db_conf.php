@@ -5,5 +5,5 @@
 $user = "root"; //"ramslexc_webmast";
 $password = "";//"RXwebmaster123";
 $server = "localhost";
-$dbname = "ramslexc_reservascubot";
+$dbname = "reservascubot";
 ?>
