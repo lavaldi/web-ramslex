@@ -43,7 +43,7 @@
 				</div>
 				<p><strong>Para hacer uso de la garantía comuníquese a:</strong></p>
 				<p>
-					Correo electrónico: soportecubot@ramslex.com <br>
+					Correo electrónico: soporte.cubot@ramslex.com <br>
 					Desde provincias: 044-618764
 				</p>
 				<p><strong>TRUJILLO:</strong></p>

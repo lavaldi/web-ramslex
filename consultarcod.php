@@ -49,11 +49,19 @@
 				<div class="page-header">
 					<h2>Consultar Código de Reserva</h2>
 				</div>
-				<?php if(isset($cadena)){
+				<?php if(isset($_GET['badcod'])){
+					if ($_GET['badcod'] == 1) {
+						echo '<div class="alert alert-dismissable alert-danger">
+              				<p>Estimado USUARIO uno de los datos ingresados (DNI ó CELULAR ó EMAIL) no es correcto, le recomendamos ingresar correctamente los 3 datos y volver a intentar.<br>
+              				Si es usuario nuevo, le recomendamos reservar su Smartphone CUBOT para obtener un código de reserva. Haga click <a href="reservar.php">AQUÍ</a> para reservar.</p>
+            			</div>';
+            		}
+				}
+				if(isset($cadena)){
 					if ($cadena[0] == true) {
 						echo '<div class="alert alert-dismissable alert-success">
               				<p>Estimad@ <strong>'.$cadena[2].'</strong>, <br>
-              				Tu CODIGO DE RESERVA es <strong>'.$cadena[1].'</strong>. También hemos enviado el código de reserva a tu correo.
+              				Tu CODIGO DE RESERVA es <strong>'.$cadena[1].'</strong>. También hemos enviado el código de reserva a tu correo.</p>
             			</div>';
             		}
 				}?>

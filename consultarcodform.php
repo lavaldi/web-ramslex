@@ -29,12 +29,18 @@
 		$conexion = mysql_connect ($server, $user, $password) or die ("No se puede conectar con el servidor"); 
 		mysql_select_db ($dbname) or die ("No se puede seleccionar la base de datos"); 
 
-	    $instruccion = "SELECT * FROM reservas WHERE dni='".$dni."' AND telefono='".$celular."' AND correo='".$mail."'";
-	    $consulta = mysql_query ($instruccion, $conexion)
+		$instruccion = "SELECT * FROM reservas WHERE dni='".$dni."' AND telefono='".$celular."' AND correo='".$mail."'";
+		$consulta = mysql_query ($instruccion, $conexion)
 	         or die ("Fallo en la consulta");
-	    $consulta = mysql_fetch_array($consulta,MYSQLI_ASSOC);
-	    mysql_close ($conexion);
+		$totalFilas    =    mysqli_num_rows($consulta); 
+		$consulta = mysql_fetch_array($consulta,MYSQLI_ASSOC);
+		mysql_close ($conexion);
 
+		if(!$consulta || $totalFilas == 0){
+		       $badcod = 1;
+		       header('Location: consultarcod.php?badcod='.$badcod); 
+		}
+		else{
 		$msg		=	'
 	    	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 			<html xmlns="http://www.w3.org/1999/xhtml">
@@ -627,7 +633,7 @@ Tu código de reserva consultado es el siguiente:
 		$para1			=	"consultareserva.cubot@ramslex.com";
 		$subject1		= 	"Codigo de Reserva Solicitado";
 		$mainheaders1	=	"Content-type: text/html; charset=utf-8\r\n";
-		$mainheaders1	.= 	"From: "$mail;
+		$mainheaders1	.= 	"From: ".$mail;
 
 		$resultado1 = mail ($para1, $subject1, $msg, $mainheaders1);
 
@@ -636,6 +642,7 @@ Tu código de reserva consultado es el siguiente:
 
 		if($resultado){
 			header('Location: consultarcod.php?cadserial='.$cadserial); 
+		}
 		}
 	}
 	else

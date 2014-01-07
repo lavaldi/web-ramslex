@@ -129,7 +129,7 @@ if(!isset($_SESSION["user"]))
 	        <h4 class="modal-title">Eliminar Reserva</h4>
 	      </div>
 	      <div class="modal-body">
-	        <p>La reserva y los datos relacionados a esta se eliminara de forma permanente. Esta deacuerdo?</p>
+	        <p>La reserva y los datos relacionados a esta se eliminara de forma permanente. Esta de acuerdo?</p>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -144,10 +144,10 @@ if(!isset($_SESSION["user"]))
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title">Eliminar Reserva</h4>
+	        <h4 class="modal-title">Eliminar Pago</h4>
 	      </div>
 	      <div class="modal-body">
-	        <p>La Confirmacion de pago y los datos relacionados a esta se eliminara de forma permanente. Esta deacuerdo?</p>
+	        <p>La Confirmación de pago y los datos relacionados a esta se eliminara de forma permanente. Esta de acuerdo?</p>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -162,10 +162,10 @@ if(!isset($_SESSION["user"]))
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title">Eliminar Reserva</h4>
+	        <h4 class="modal-title">Confirmar Pago</h4>
 	      </div>
 	      <div class="modal-body">
-	        <p>Esta deacuerdo con los datos de la confirmacion</p>
+	        <p>Esta de acuerdo con los datos de la confirmación</p>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -342,6 +342,7 @@ if(!isset($_SESSION["user"]))
 			});
 
 			enviaraceptar.done(function(data){
+				console.log(data);
 				$("#aceptarconfirmacionmodal").modal('hide');
 				tablereservas.fnReloadAjax("tablareservas.php");
 				tableconfirmaciones.fnReloadAjax("tablaconfirmpago.php");

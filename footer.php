@@ -21,8 +21,7 @@
 	      //'numPreferredServices' : 5
 	      'services' : 'facebook,twitter,google_plusone_share,pinterest_share,more',
 		  'postShareTitle' : 'Gracias por compartir!',
-		  'desktop' : true,
-		  'mobile' : true
+		  'desktop' : true
 	    }, 
 	    'follow' : {
 	      'services' : [

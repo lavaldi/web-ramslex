@@ -440,7 +440,7 @@
 				                        
 				                        <td valign="top" class="mcnTextContent" style="padding-top: 9px;padding-left: 18px;padding-bottom: 9px;padding-right: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 11px;line-height: 125%;text-align: left;">
 				                        
-				                            Mensaje Datos de Pago por Validar - Promoción Cubot
+				                            Mensaje Datos Validados - Promoción Cubot
 				                        </td>
 				                    </tr>
 				                </tbody></table>
@@ -523,21 +523,21 @@
 				                            <h1 style="margin: 0;padding: 0;display: block;font-family: Helvetica;font-size: 40px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: -1px;text-align: left;color: #606060 !important;"><span style="font-size: 13px; line-height: 1.6em;">Estimad@ '.$resultado['nombres'].'</span></h1>
 
 				<p style="margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">
-				Sus datos han sido ingresados correctamente y son los siguientes:<br>
+				Tus datos han sido <strong>VALIDADOS</strong> correctamente y son los siguientes:<br>
 				<strong>Código de Reserva: </strong> '.$resultado['codigoreserva'].'<br>
 				<strong>Número de Operación: </strong> '.$resultado['num_operacion'].'<br>
 				<strong>Fecha de Op.: </strong> '.$resultado['fecha_pago'].'<br>
 				<strong>Hora de Op.: </strong> '.$resultado['hora'].'<br>
 				<hr>
-				<strong>Equipo reservado: </strong> '.$resultado['equipo'].'<br>
+				<strong>Equipo Reservado: </strong> '.$resultado['equipo'].'<br>
 				<strong>Memoria MicroSD 16GB Kingston: </strong> '.$resultado['kingston'].'<br>
-				<strong>Total a PAGAR: </strong> '.$resultado['monto'].'<br>
-				<strong>Nombre completo:</strong> '.$resultado['nombres'].' '.$resultado['apellidos'].'<br>
+				<strong>Total a PAGAR (S/.): </strong> '.$resultado['monto'].'<br>
+				<strong>Nombre Completo:</strong> '.$resultado['nombres'].' '.$resultado['apellidos'].'<br>
 				<strong>DNI: </strong> '.$resultado['dni'].'<br>
 				<strong>Sexo: </strong> '.$resultado['sexo'].'<br>
 				<strong>N° de Teléfono o Celular: </strong> '.$resultado['telefono'].'<br>
-				<strong>Correo: </strong> '.$resultado['correo'].'<br></p>
-<p style="margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">En breve validaremos los datos ingresados, luego de confirmar la veracidad de su pago. Verificado su pago le enviaremos un correo de validación de pago. Gracias por su preferencia.</p>
+				<strong>Correo Electrónico: </strong> '.$resultado['correo'].'<br></p>
+<p style="margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">Gracias por confiar en nosotros.</p>
 				                        </td>
 				                    </tr>
 				                </tbody></table>
@@ -606,8 +606,8 @@
 				        </center>
 				    </body>
 				</html>';
-		$to = $consulta['correo'];
-		$subject = "Datos de Pago por Validar Promosmart CUBOT";
+		$to = $resultado['correo'];
+		$subject = "Pago Confirmado Promosmart CUBOT";
 		$mainheaders	=	"Content-type: text/html; charset=utf-8\r\n";
 		$mainheaders 	.= "From: RAMSLEX ENGINEERING TECHNOLOGIES";
 

@@ -50,7 +50,6 @@
 				<?php if(isset($_GET['band'])){
 					if ($_GET['band'] == true) {
 						echo '<div class="alert alert-dismissable alert-success">
-	              				<button type="button" class="close" data-dismiss="alert">×</button>
 	              				<strong>¡Maravilloso!</strong> Tu consulta ha sido realizada con éxito.
 	            		</div>';
 	            	}

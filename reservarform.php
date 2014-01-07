@@ -719,7 +719,7 @@
 			$subject1	= 	"Reserva de CUBOT";
 			$mainheaders1	=	"Content-type: text/html; charset=utf-8\r\n";
 			$mainheaders1	.= 	"From: ".$mail;
-			$resultado1 = mail ($para1, $subject1, $mensaje1, $mainheaders1);
+			$resultado1 = mail ($para1, $subject1, $mensaje, $mainheaders1);
 
 			if(!$resultado){
 				$success = false;

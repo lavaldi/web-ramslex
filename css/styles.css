@@ -148,6 +148,9 @@ color: #000;
 	#tablereservas_wrapper .col-xs-6, #tableconfirmaciones_wrapper .col-xs-6{
 		width: auto;
 	}
+	.first{
+		padding: 50px 0 0;
+	}
 }
 table tr.even.row_selected td {
         background-color: #B0BED9;
@@ -163,4 +166,18 @@ table tr.even.row_confirm td {
 
 table tr.odd.row_confirm td {
         background-color: #7BD18D;
+}
+.at4m-dock.at4-ma2 a:first-child{
+        border-right: 1px solid #3b5998;
+        background: #3b5998;
+        color: white;
+}
+.at4m-dock.at4-ma2 a{
+        background: #F35E4C;
+        color: white;
+}
+@media (min-width: 768px) and (max-width: 1199px ) {
+	.first{
+		padding: 150px 0 0;
+	}
 }

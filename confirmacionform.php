@@ -42,10 +42,11 @@
 
 		$instruccion = "SELECT * FROM reservas WHERE codigoreserva='".$codigoreserva."' AND monto='".$pago."'";
 		$consulta = mysqli_query($conexion,$instruccion);
+		$totalFilas    =    mysqli_num_rows($consulta); 
 
-		if (!$consulta) {
+		if (!$consulta || $totalFilas == 0 ) {
 			$success = false;
-	    	$envio =  array('band'=>false,'cod'=>$codigoreserva, 'msj'=>'El código o monto ingresado no son correctos, vuelva a intentar.');
+	    		$envio =  array('band'=>false,'cod'=>$codigoreserva, 'msj'=>'El Código de Reserva y/o el Monto Total de Pago ingresado no es(son) correcto(s), le recomendamos corregir este(os) valor(es) y volver a intentar.');
 		}
 		else{
 			$consulta = mysqli_fetch_array($consulta);
@@ -57,7 +58,7 @@
 
 		    if(!$consulta1){
 		    	$success = false;
-		    	$envio =  array('band'=>false,'cod'=>$codigoreserva, 'msj'=>'Usted ya confirmó su pago. 1');
+		    	$envio =  array('band'=>false,'cod'=>$codigoreserva, 'msj'=>'Usted ya confirmó su pago.');
 		    }
 	   		else{
 				$msg		=	'
@@ -565,14 +566,14 @@
 				<strong>Fecha de Op.: </strong> '.$fecha.'<br>
 				<strong>Hora de Op.: </strong> '.$hora.'<br>
 				<hr>
-				<strong>Equipo reservado: </strong> '.$consulta['equipo'].'<br>
+				<strong>Equipo Reservado: </strong> '.$consulta['equipo'].'<br>
 				<strong>Memoria MicroSD 16GB Kingston: </strong> '.$consulta['kingston'].'<br>
-				<strong>Total a PAGAR: </strong> '.$pago.'<br>
+				<strong>Total a PAGAR (S/.): </strong> '.$pago.'<br>
 				<strong>Nombre completo:</strong> '.$consulta['nombres'].' '.$consulta['apellidos'].'<br>
 				<strong>DNI: </strong> '.$consulta['dni'].'<br>
 				<strong>Sexo: </strong> '.$consulta['sexo'].'<br>
 				<strong>N° de Teléfono o Celular: </strong> '.$consulta['telefono'].'<br>
-				<strong>Correo: </strong> '.$consulta['correo'].'<br></p>
+				<strong>Correo Electrónico: </strong> '.$consulta['correo'].'<br></p>
 <p style="margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">En breve validaremos los datos ingresados, luego de confirmar la veracidad de su pago. Verificado su pago le enviaremos un correo de validación de pago. Gracias por su preferencia.</p>
 				                        </td>
 				                    </tr>
@@ -676,7 +677,7 @@
 						"Número de Operación: ".$numope."<br>".
 						"Fecha de Operación: ".$fecha."<br>".
 						"Hora de Operación: ".$hora."<br>".
-						"------------------------------------------------------------------------ <br>".
+						"------------------------------------------------------------------------<br>".
 						"Equipo separado".$consulta['equipo']."<br>".
 						"Memoria kingston: ".$consulta['kingston']."<br>".
 						"Total PAGADO: ".$pago."<br>".
@@ -685,6 +686,7 @@
 						"Sexo: ".$consulta['sexo']."<br>".
 						"N° de Teléfono o Celular: ".$consulta['telefono']."<br>".
 						"Correo: ".$consulta['correo']."<br>".
+						"------------------------------------------------------------------------<br>".
 						"En breve validaremos los datos ingresados, luego de confirmar la veracidad de su pago. Verificado su pago le enviaremos un correo de validación de pago. Gracias por su preferencia.<br>";
 
 				$envio =  array('band'=>$band,'cod'=>$codigoreserva, 'msj'=>$msg3);
