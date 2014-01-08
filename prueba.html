@@ -1,0 +1,124 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/validationEngine.jquery.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css"></head>
+	<style type="text/css">
+	#action-bubble {
+	   width: 46px; 
+	   height: 92px; 
+	   background: white;
+	   border: 4px solid #428bca;
+	   position: absolute;
+	   -moz-border-radius: 10px; 
+	   -webkit-border-radius: 10px; 
+	   border-radius: 10px;
+	}
+	#action-bubble:before {
+	   	content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-top: 10px solid transparent;
+		border-right: 15px solid #428bca;
+		border-bottom: 10px solid transparent;
+		margin: 4px 0 0 -19px;
+	}
+	#action-bubble ul{
+		padding: 0;
+		list-style-type: none;
+	}
+	#action-bubble hr{
+		margin: 0;
+	}
+	.btn-action{
+		position: relative;
+		left: -1px;
+		-moz-border-radius: 0; 
+		-webkit-border-radius: 0;
+		border-radius: 0;
+	}
+	.action_container{
+	   	width: 38px; 
+		height: 83px;
+		-moz-border-radius: 7px; 
+		-webkit-border-radius: 7px;
+		border-radius: 7px;
+		overflow: hidden;
+	}
+	</style>
+<body>
+	<div class="first" style="padding: 25px;">
+		<div class="row">
+			<div class="col-lg-9">
+				<div class="page-header">
+					<h2>Table</h2>
+				</div>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+				  	<div class="tab-pane active" id="reservas">
+				  		<div class="panel panel-default" style="border-radius: 0; padding: 5px;">
+				  			<br>						  	
+							<table id="tabla" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+								<thead>
+									<tr>
+										<th>Engine</th>
+										<th>Browser</th>
+										<th>Platforms</th>
+										<th>Version</th>
+										<th>CSS grade</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+							<div id="action-bubble">
+								<div class="action_container">
+									<ul>
+										<li><button class="btn btn-default btn-action btn-view"><i class="glyphicon glyphicon-eye-open"></i></button></li>
+										<li><button class="btn btn-default btn-action btn-edit"><i class="glyphicon glyphicon-pencil"></i></button></li>
+										<li><button class="btn btn-default btn-action btn-drop"><i class="glyphicon glyphicon-trash"></i></button></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+	<script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/datatable_plugins.js"></script>
+	<script type="text/javascript" language="javascript" src="js/dataTables.bootstrap.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.validationEngine-es.js"></script>
+	<script type="text/javascript" src="js/jquery.validationEngine.js"></script>
+	<script>
+		$(document).ready(function()
+		{
+			var otable = $("#tabla").dataTable( {
+				"bProcessing": true,
+				"sAjaxSource": 'source.json',
+				"fnCreatedRow": function( nRow, aData, iDisplayIndex )
+				{
+		        	$(nRow).click( function()
+		        	{
+						if ( $(this).hasClass('row_selected') ) {
+				            $(this).removeClass('row_selected');		            
+				            IdReservaSelected = null;
+				        }
+						else {
+							$('#tabla tr.row_selected').removeClass('row_selected');
+				            $(this).addClass('row_selected');
+				            IdReservaSelected = aData.idreservas;
+			        	}
+					});
+		        }
+			});
+		});
+	</script>
+</html>
