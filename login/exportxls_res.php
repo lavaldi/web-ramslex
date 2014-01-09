@@ -22,12 +22,13 @@ while ($fila = mysql_fetch_array($consulta, MYSQL_ASSOC)) {
     $content .= "<tr><td>".$fila["fecha"]."</td>".
     			"<td>".$fila["nombres"]."</td>".
     			"<td>".$fila["apellidos"]."</td>".
+    			"<td>".$fila["correo"]."</td>".
+    			"<td>".$fila["telefono"]."</td>".
     			"<td>".$fila["equipo"]."</td>".
+    			"<td>".$fila["monto"]."</td>".
     			"<td>".$fila["dni"]."</td>".
     			"<td>".$fila["sexo"]."</td>".
-    			"<td>".$fila["telefono"]."</td>".
     			"<td>".$fila["distrito"]."</td>".
-    			"<td>".$fila["correo"]."</td>".
     			"<td>".$fila["notificaciones"]."</td>".
     			"<td>".$fila["kingston"]."</td>".
     			"<td>".$fila["codigoreserva"]."</td></tr>";

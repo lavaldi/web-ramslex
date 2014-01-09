@@ -46,7 +46,7 @@
 
 		if (!$consulta || $totalFilas == 0 ) {
 			$success = false;
-	    		$envio =  array('band'=>false,'cod'=>$codigoreserva, 'msj'=>'El Código de Reserva y/o el Monto Total de Pago ingresado no es(son) correcto(s), le recomendamos corregir este(os) valor(es) y volver a intentar.');
+	    		$envio =  array('band'=>false,'cod'=>$codigoreserva, 'msj'=>'El Código de Reserva o El Monto Total de Pago ingresado no es correcto, le recomendamos corregir este valor en el paso anterior y volver a intentar.');
 		}
 		else{
 			$consulta = mysqli_fetch_array($consulta);
@@ -476,8 +476,7 @@
 				                    <tbody><tr>
 				                        
 				                        <td valign="top" class="mcnTextContent" style="padding-top: 9px;padding-left: 18px;padding-bottom: 9px;padding-right: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 11px;line-height: 125%;text-align: left;">
-				                        
-				                            Mensaje Datos de Pago por Validar - Promoción Cubot
+				                            Datos de Pago por Validar Promo Smartphone CUBOT
 				                        </td>
 				                    </tr>
 				                </tbody></table>
@@ -644,7 +643,7 @@
 				    </body>
 				</html>';
 				$to = $consulta['correo'];
-				$subject = "Datos de Pago por Validar Promosmart CUBOT";
+				$subject = "Datos de Pago por Validar Promo Smartphone CUBOT";
 				$mainheaders	=	"Content-type: text/html; charset=utf-8\r\n";
 				$mainheaders 	.= "From: RAMSLEX ENGINEERING TECHNOLOGIES";
 
@@ -673,6 +672,7 @@
 
 				$msg3 = 	"Estimad@ ".$consulta['nombres']."<br>".
 						"========================================================== <br>".
+						"Sus datos han sido ingresados correctamente y son los siguientes: <br>".
 						"Código de Reserva: ".$codigoreserva."<br>".
 						"Número de Operación: ".$numope."<br>".
 						"Fecha de Operación: ".$fecha."<br>".

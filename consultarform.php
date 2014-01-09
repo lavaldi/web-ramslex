@@ -6,20 +6,24 @@
 	$privatekey = "6Lct8esSAAAAADh5eKdnTJ-5MD9sBO-oL3NX0-a5";
 	$error = null;
 
-	$nombres	=	$_POST['nombres']; 
-	$apellidos	= 	$_POST['apellidos'];
-	$dni		=	$_POST['dni'];
-	$celular	=	$_POST['celular'];
-	$mail 		=	$_POST['email'];
-	$conf_email	=	$_POST['conf-email'];
-	$tipo_consulta	=	'';
-	$consulta	=	$_POST['consulta'];
+	$formulario		= 	$_REQUEST['formulario'];
+	$datos			= 	array();
+	parse_str($formulario,$datos);
 
-	if ($_POST["recaptcha_response_field"]) {
+	$nombres	=	$datos['nombres']; 
+	$apellidos	= 	$datos['apellidos'];
+	$dni		=	$datos['dni'];
+	$celular	=	$datos['celular'];
+	$mail 		=	$datos['email'];
+	$conf_email	=	$datos['conf-email'];
+	$tipo_consulta	=	'';
+	$consulta	=	$datos['consulta'];
+
+	if ($datos["recaptcha_response_field"]) {
         $resp = recaptcha_check_answer ($privatekey,
             $_SERVER["REMOTE_ADDR"],
-            $_POST["recaptcha_challenge_field"],
-            $_POST["recaptcha_response_field"]);
+            $datos["recaptcha_challenge_field"],
+            $datos["recaptcha_response_field"]);
 
         if ($resp->is_valid) {
                 $band = true;
@@ -30,7 +34,7 @@
 
 	if ($band) {
 
-		switch ($_POST['selectConsulta']) {
+		switch ($datos['selectConsulta']) {
 			case '1':
 				$tipo_consulta = "Sobre la mecánica de la Promoción";
 				break;
@@ -57,9 +61,11 @@
 		$resultado = mail ($to, $subject, $msg);
 
 		if($resultado){
-			header('Location: consultar.php?band='.$band); 
+			$band = true;
 		}
 	}
 	else
-		header('Location: consultar.php?band='.$band); 
+		$band = false;
+
+	echo json_encode($band); 
 ?>

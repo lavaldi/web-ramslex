@@ -93,6 +93,7 @@ $(".next").css("display","none");
 								else{
 									bande = true;
 									$("#error_captcha").text(data.msj);
+									Recaptcha.reload();
 								}
 							});
 							enviarreserva.error(function(){
@@ -144,12 +145,13 @@ $(".next").css("display","none");
 								data = $.parseJSON(data);
 								if (data.band==true) {
 									$("#datos").html(data.msj);
-$(".previous").css("display","none");
-$(".next").css("display","none");
+								$(".previous").css("display","none");
+								$(".next").css("display","none");
 								}
 								else{
 									bande = true;
 									$("#error_captcha").text(data.msj);
+									Recaptcha.reload();
 								}
 							});
 							enviarconfirmacion.error(function(){
@@ -173,6 +175,80 @@ $(".next").css("display","none");
 					return false;
 				}
 			});
+			$('#btn-consultar').click(function(e){
+				e.preventDefault();
+				if($("#consultarform").validationEngine('validate')){
+					var enviarconsulta = $.ajax({
+						type: "post",
+						async: false,
+						url: "consultarform.php",
+						data: {'formulario':$("#consultarform").serialize()}
+					});
+					enviarconsulta.done(function(data){
+						console.log(data);
+						data = $.parseJSON(data);
+						if (data == true) {
+							$("#response-success").html('<div class="alert alert-dismissable alert-success"><strong>¡Maravilloso!</strong> Tu consulta ha sido realizada con éxito.</div>');
+							$("#response-error").html('');
+							$('#consultarform').each(function(){
+							  	this.reset();
+							});
+							Recaptcha.reload();
+						}
+						else{
+							$("#response-success").html('');
+							$("#response-error").html("<span id='error_captcha' class='help-block'>Captcha Incorrecto :(</span>");
+							Recaptcha.reload();
+						}
+					});
+					enviarconsulta.error(function(){
+						//bande = true;
+					});
+				}
+			});
+
+			$('#btn-consultarcod').click(function(e){
+				e.preventDefault();
+				if($("#consultarcodform").validationEngine('validate')){
+					var enviarconsulta = $.ajax({
+						type: "post",
+						async: false,
+						url: "consultarcodform.php",
+						data: {'formulario':$("#consultarcodform").serialize()}
+					});
+					enviarconsulta.done(function(data){
+						console.log(data);
+						data = $.parseJSON(data);
+						if (data.band == 0) {
+							$("#datosmal").css("display","block");
+							$("#todook").css("display","none");
+							$("#error_captcha").css("display","none");
+							Recaptcha.reload();
+						}
+						else if (data.band == 1) {
+							$("#datosmal").css("display","none");
+							$("#nombrecli").text(data.nombres);
+							$("#codcli").text(data.codigoreserva);
+							$("#todook").css("display","block");
+							$("#error_captcha").css("display","none");
+							$('#consultarcodform').each(function(){
+							  	this.reset();
+							});
+							Recaptcha.reload();
+						}
+						else{
+							$("#datosmal").css("display","none");
+							$("#todook").css("display","none");
+							$("#error_captcha").css("display","block");
+							Recaptcha.reload();
+						}
+					});
+					enviarconsulta.error(function(){
+						//bande = true;
+					});
+				}
+			});
+
 		});
 	</script>
 </body>
