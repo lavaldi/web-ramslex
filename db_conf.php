@@ -2,8 +2,8 @@
 // servidor, usuario, contrasenia
 /*usuario= cmclmcom_webmast ---- contrasenia=CLMwebmaster123*/
 /*BD = cmclmcom_testedu*/
-$user = "ramslexc_webmast";
-$password = "RXwebmaster123";
+$user = "root";
+$password = "";
 $server = "localhost";
 $dbname = "ramslexc_reservascubot";
 ?>

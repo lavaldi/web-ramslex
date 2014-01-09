@@ -6,8 +6,6 @@
 	$privatekey = "6Lct8esSAAAAADh5eKdnTJ-5MD9sBO-oL3NX0-a5";
 	$error = null;
 
-	$cadena = unserialize($_GET['cadserial']);
-
 	include 'header.php'; 
 ?>
 	<header class="navbar navbar-inverse navbar-fixed-top dnavbar" role="banner">
@@ -49,23 +47,15 @@
 				<div class="page-header">
 					<h2>Consultar Código de Reserva</h2>
 				</div>
-				<?php if(isset($_GET['badcod'])){
-					if ($_GET['badcod'] == 1) {
-						echo '<div class="alert alert-dismissable alert-danger">
-              				<p>Estimado USUARIO uno de los datos ingresados (DNI ó CELULAR ó EMAIL) no es correcto, le recomendamos ingresar correctamente los 3 datos y volver a intentar.<br>
-              				Si es usuario nuevo, le recomendamos reservar su Smartphone CUBOT para obtener un código de reserva. Haga click <a href="reservar.php">AQUÍ</a> para reservar.</p>
-            			</div>';
-            		}
-				}
-				if(isset($cadena)){
-					if ($cadena[0] == true) {
-						echo '<div class="alert alert-dismissable alert-success">
-              				<p>Estimad@ <strong>'.$cadena[2].'</strong>, <br>
-              				Tu CODIGO DE RESERVA es <strong>'.$cadena[1].'</strong>. También hemos enviado el código de reserva a tu correo.</p>
-            			</div>';
-            		}
-				}?>
-				<form class="form-horizontal" role="form" action="consultarcodform.php" method="post">
+				<div id="datosmal" class="alert alert-dismissable alert-danger" style="display:none;">
+      				<p>Estimado USUARIO uno de los datos ingresados (DNI ó CELULAR ó EMAIL) no es correcto, le recomendamos ingresar correctamente los 3 datos y volver a intentar.<br>
+      				Si es usuario nuevo, le recomendamos reservar su Smartphone CUBOT para obtener un código de reserva. Haga click <a href="reservar.php">AQUÍ</a> para reservar.</p>
+    			</div>
+            	<div id="todook" class="alert alert-dismissable alert-success" style="display:none;">
+      				<p>Estimad@ <strong id="nombrecli"></strong>, <br>
+      				Tu CODIGO DE RESERVA es <strong id="codcli"></strong>. También hemos enviado el código de reserva a tu correo.</p>
+    			</div>
+				<form id="consultarcodform" class="form-horizontal" role="form" action="consultarcodform.php" method="post">
 				  	<div class="form-group">
 				    	<label for="dni" class="col-sm-3 control-label">DNI</label>
 				    	<div class="col-sm-9">
@@ -92,11 +82,7 @@
 				  	</div>
 				  	<div class="form-group">
 				    	<div class="col-sm-offset-3 col-sm-9">
-				    		<?php if(isset($_GET['band'])){
-								if ($_GET['band'] == false) {
-									echo "<span id='error_captcha' class='help-block'>Captcha Incorrecto :(</span>";
-			            		}	
-							}?>
+				    		<span id='error_captcha' class='help-block' style="display:none;">Captcha Incorrecto :(</span>			            	
 			        		<label>
 			          			<?php 
 			          				echo recaptcha_get_html($publickey, $error); 
@@ -106,7 +92,7 @@
 				  	</div>
 				  	<div class="form-group">
 				    	<div class="col-sm-offset-3 col-sm-9">
-				      		<button type="submit" class="btn btn-primary">Consultar</button>
+				      		<button id="btn-consultarcod" type="button" class="btn btn-primary">Consultar</button>
 				    	</div>
 				  	</div>
 				</form>

@@ -47,15 +47,9 @@
 				<div class="page-header">
 					<h2>Consultar</h2>
 				</div>
-				<?php if(isset($_GET['band'])){
-					if ($_GET['band'] == true) {
-						echo '<div class="alert alert-dismissable alert-success">
-	              				<strong>¡Maravilloso!</strong> Tu consulta ha sido realizada con éxito.
-	            		</div>';
-	            	}
-	            }?>
+				<div id="response-success"></div>
 				<p>Antes de hacer tu consulta puedes verificar en la sección de <a href="faqs.php">PREGUNTAS FRECUENTES</a>.</p>
-				<form class="form-horizontal" role="form" action="consultarform.php" method="post">
+				<form id="consultarform" class="form-horizontal" role="form">
 					<div class="col-sm-6">
 					  	<div class="form-group">
 					    	<label for="nombres" class="col-sm-4 control-label">Nombres</label>
@@ -84,7 +78,7 @@
 					  	<div class="form-group">
 					    	<label class="col-sm-4 control-label"></label>
 					    	<div class="col-sm-8">
-					  			<span class="help-block">Asegúrate que tu bandeja de entrada esté habilitada o funcionando.</span>
+					  			<span class="help-block">Asegúrate que la bandeja de entrada de tu correo electrónico esté habilitada o funcionando.</span>
 					  		</div>
 					  	</div>
 					  	<div class="form-group">
@@ -118,11 +112,7 @@
 					  	</div>
 					  	<div class="form-group">
 					    	<div class="col-sm-offset-4 col-sm-8">
-					    		<?php if(isset($_GET['band'])){
-									if ($_GET['band'] == false) {
-										echo "<span id='error_captcha' class='help-block'>Captcha Incorrecto :(</span>";
-				            		}	
-								}?>
+					    		<div id="response-error"></div>
 				        		<label>
 				          			<?php 
 				          				echo recaptcha_get_html($publickey, $error); 
@@ -132,7 +122,7 @@
 					  	</div>
 					  	<div class="form-group">
 					    	<div class="col-sm-offset-4 col-sm-8">
-					      		<button type="submit" class="btn btn-primary">Consultar</button>
+					      		<button id="btn-consultar" type="button" class="btn btn-primary">Consultar</button>
 					    	</div>
 					  	</div>
 					</div>

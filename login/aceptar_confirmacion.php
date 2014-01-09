@@ -440,7 +440,7 @@
 				                        
 				                        <td valign="top" class="mcnTextContent" style="padding-top: 9px;padding-left: 18px;padding-bottom: 9px;padding-right: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 11px;line-height: 125%;text-align: left;">
 				                        
-				                            Mensaje Datos Validados - Promoción Cubot
+				                            Pago Confirmado Promo Smartphone CUBOT
 				                        </td>
 				                    </tr>
 				                </tbody></table>
@@ -607,7 +607,7 @@
 				    </body>
 				</html>';
 		$to = $resultado['correo'];
-		$subject = "Pago Confirmado Promosmart CUBOT";
+		$subject = "Pago Confirmado Promo Smartphone CUBOT";
 		$mainheaders	=	"Content-type: text/html; charset=utf-8\r\n";
 		$mainheaders 	.= "From: RAMSLEX ENGINEERING TECHNOLOGIES";
 

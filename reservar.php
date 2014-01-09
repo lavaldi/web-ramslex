@@ -150,7 +150,7 @@
 							  	<div class="form-group">
 							    	<label class="col-sm-3 control-label"></label>
 							    	<div class="col-sm-9">
-							  			<span class="help-block">Asegúrate que tu bandeja de entrada esté habilitada o funcionando.</span>
+							  			<span class="help-block">Asegúrate que la bandeja de entrada de tu correo electrónico esté habilitada o funcionando.</span>
 							  		</div>
 							  	</div>
 							  	<div class="form-group">

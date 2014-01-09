@@ -7,15 +7,19 @@
 	$privatekey = "6Lct8esSAAAAADh5eKdnTJ-5MD9sBO-oL3NX0-a5";
 	$error = null;
 
-	$dni		=	$_POST['dni'];
-	$celular	=	$_POST['celular'];
-	$mail 		=	$_POST['email'];
+	$formulario		= 	$_REQUEST['formulario'];
+	$datos			= 	array();
+	parse_str($formulario,$datos);
 
-	if ($_POST["recaptcha_response_field"]) {
+	$dni		=	$datos['dni'];
+	$celular	=	$datos['celular'];
+	$mail 		=	$datos['email'];
+
+	if ($datos["recaptcha_response_field"]) {
         $resp = recaptcha_check_answer ($privatekey,
             $_SERVER["REMOTE_ADDR"],
-            $_POST["recaptcha_challenge_field"],
-            $_POST["recaptcha_response_field"]);
+            $datos["recaptcha_challenge_field"],
+            $datos["recaptcha_response_field"]);
 
         if ($resp->is_valid) {
                 $band = true;
@@ -32,15 +36,15 @@
 		$instruccion = "SELECT * FROM reservas WHERE dni='".$dni."' AND telefono='".$celular."' AND correo='".$mail."'";
 		$consulta = mysql_query ($instruccion, $conexion)
 	         or die ("Fallo en la consulta");
-		$totalFilas    =    mysqli_num_rows($consulta); 
-		$consulta = mysql_fetch_array($consulta,MYSQLI_ASSOC);
+		$totalFilas    =    mysql_num_rows($consulta); 
+		$consulta = mysql_fetch_array($consulta,MYSQL_ASSOC);
 		mysql_close ($conexion);
 
 		if(!$consulta || $totalFilas == 0){
-		       $badcod = 1;
-		       header('Location: consultarcod.php?badcod='.$badcod); 
+		       $envio = array('band' => 0); //cuando los datos son erroneos
 		}
 		else{
+
 		$msg		=	'
 	    	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 			<html xmlns="http://www.w3.org/1999/xhtml">
@@ -637,14 +641,12 @@ Tu código de reserva consultado es el siguiente:
 
 		$resultado1 = mail ($para1, $subject1, $msg, $mainheaders1);
 
-		$cadena = array($band,$consulta['codigoreserva'],$consulta['nombres']);
-		$cadserial = serialize($cadena);
-
 		if($resultado){
-			header('Location: consultarcod.php?cadserial='.$cadserial); 
+			$envio = array('band' => 1, 'codigoreserva' => $consulta['codigoreserva'], 'nombres' => $consulta['nombres']); //cuando todo salio bien :)
 		}
 		}
 	}
 	else
-		header('Location: consultarcod.php?band='.$band); 
+		$envio = array('band' => 2); //codigo captcha erroneo
+	echo json_encode($envio); 
 ?>
